@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepod</title>
+    <link href="katex/katex.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style_professor.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <main id="contain">
+        <h1 class="zagolovok">Калькулятор преподавателя ^_^</h1>
+        <section id="text">
+            <span id="about_calculate">
+            Здравствуйте, уважаемый преподаватель! 
+            Данная программа предназначена для составления заданий для студентов по теме «Неопределенные интегралы». 
+            Желаемое количество интегралов в каждом типе &lt; 5! Больше можно, но пока будут повторения.
+            Далее дано краткое пособие по использованию. <a href="readme.html" target="_blank">Приступим к ознакомлению.</a>
+            </span>
+        </section>
+        <section id="zadan">
+            <div class="integ">
+                <section class="num_name">№1 Метод замены переменной</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="a"></div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <div id="a_prim_1"></div>
+                        <div id="a_prim_2"></div>
+                        <div id="a_prim_3"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span><input type="checkbox" id="ch_a" value="1" onchange='fokus("ch_a", "k_a")'>  Простой</span>
+                        <span><input type="checkbox" id="ch_b" value="2" onchange='fokus("ch_b", "k_b")'>  Средний</span>
+                        <span><input type="checkbox" id="ch_c" value="3" onchange='fokus("ch_c", "k_c")'>  Сложный</span>
+                    </article>
+                    <!-- Вывод выбора количества -->
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_a" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_b" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_c" disabled>
+                    </article>
+                </section>
+            </div>
+            <hr>
+            <div class="integ">
+                <section class="num_name">№2 Метод интегрирования по частям</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="b"></div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <div id="b_prim_1"></div>
+                        <div id="b_prim_2"></div>
+                        <div id="b_prim_3"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span><input type="checkbox" id="ch_d" value="1" onchange='fokus("ch_d", "k_d")'>  Простой</span>
+                        <span><input type="checkbox" id="ch_e" value="2" onchange='fokus("ch_e", "k_e")'>  Средний</span>
+                        <span><input type="checkbox" id="ch_f" value="3" onchange='fokus("ch_f", "k_f")'>  Сложный</span>
+                    </article>
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_d" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_e" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_f" disabled>
+                    </article>
+                </section>
+                <article class="slozn">
+            </div>
+            <hr>
+            <div class="integ">
+                <section class="num_name">№3</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="c"></div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <div id="c_prim_1"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span><input type="checkbox" id="ch_g" value="1" onchange='fokus("ch_g", "k_g")'>Выбрать</span>
+                        <!--<span><input type="checkbox" id="ch_h" value="2" onchange='fokus("ch_h", "k_h")'> 2 - Средний</span>
+                        <span><input type="checkbox" id="ch_i" value="3" onchange='fokus("ch_i", "k_i")'> 3 - Сложный</span>-->
+                    </article>
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_g" disabled>
+                        <!--<input type="text" size="3" maxlength="1" id="k_h" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_i" disabled>-->
+                    </article>
+                </section>
+            </div>
+            <hr>
+            <div class="integ">
+                <section class="num_name">№4 Интегрирование рациональных дробей</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="d_full">
+                        <div id="d"></div>
+                        где P и Q - многочлены степени m и n
+                    </div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <div id="d_prim_1"></div>
+                        <div id="d_prim_2"></div>
+                        <div id="d_prim_3"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span>
+                            <input type="checkbox" id="ch_j" value="1" onchange='fokus("ch_j", "k_j")'>&ensp;m &lt; n;&ensp;Q(x) раскладывается на множители 1 степени
+                        </span>
+                        <span><input type="checkbox" id="ch_k" value="2" onchange='fokus("ch_k", "k_k")'>&ensp;m &lt; n;&ensp;Q(x) раскладывается на множители 1 степени и 2
+                        </span>
+                        <span><input type="checkbox" id="ch_l" value="3" onchange='fokus("ch_l", "k_l")'>&ensp;m &gt; n</span>
+                    </article>
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_j" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_k" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_l" disabled>
+                    </article>
+                </section>
+            </div>
+            <hr>
+            <div class="integ">
+                <section class="num_name">№5 Универсальная Тригонометрическая подстановка</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="e_full">
+                        <div id="e_nazv_1"></div>
+                        <div id="e_nazv_2"></div>
+                        <span><div id="e_nazv_3" style="display: inline-block"></div>&ensp; где m + n = 3</span>
+                    </div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <div id="e_prim_1"></div>
+                        <div id="e_prim_2"></div>
+                        <div id="e_prim_3"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span><input type="checkbox" id="ch_m" value="1" onchange='fokus("ch_m", "k_m")'> Простой</span>
+                        <span><input type="checkbox" id="ch_n" value="2" onchange='fokus("ch_n", "k_n")'> Средний</span>
+                        <span><input type="checkbox" id="ch_o" value="3" onchange='fokus("ch_o", "k_o")'> Сложный</span>
+                    </article>
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_m" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_n" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_o" disabled>
+                    </article>
+                </section>
+            </div>
+            <hr>
+            <div class="integ">
+                <section class="num_name">№6 Частные варианты интегрирования тригонометрических функций</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="f_full">
+                        <span><div id="f_nazv_1_1" style="display: inline-block"></div>&ensp;или&ensp;<div id="f_nazv_1_2" style="display: inline-block"></div></span>
+                        <span><div id="f_nazv_2" style="display: inline-block"></div>&ensp;где m - нечетное</span>
+                        <span><div id="f_nazv_3" style="display: inline-block"></div>&ensp;где m и n четные (могут быть равны 0)</span>
+                    </div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <div id="f_prim_1"></div>
+                        <div id="f_prim_2"></div>
+                        <div id="f_prim_3"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span><input type="checkbox" id="ch_p" value="1" onchange='fokus("ch_p", "k_p")'> 1</span>
+                        <span><input type="checkbox" id="ch_q" value="2" onchange='fokus("ch_q", "k_q")'> 2</span>
+                        <span><input type="checkbox" id="ch_r" value="3" onchange='fokus("ch_r", "k_r")'> 3</span>
+                    </article>
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_p" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_q" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_r" disabled>
+                    </article>
+                </section>
+            </div>
+            <hr>
+            <div class="integ">
+                <section class="num_name">№7 Частные варианты интегрирования тригонометрических функций 2.0</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="g_full">
+                        <div id="g_nazv_1"></div>
+                        <span><div id="g_nazv_2_1" style="display: inline-block"></div>&ensp;или&ensp;<div id="g_nazv_2_2" style="display: inline-block"></div></span>
+                    </div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <div id="g_prim_1"></div>
+                        <div id="g_prim_2"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span><input type="checkbox" id="ch_s" value="1" onchange='fokus("ch_s", "k_s")'> Простой</span>
+                        <span><input type="checkbox" id="ch_t" value="2" onchange='fokus("ch_t", "k_t")'> Средний</span>
+                    </article>
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_s" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_t" disabled>
+                    </article>
+                </section>
+            </div>
+            <hr>
+            <div class="integ">
+                <section class="num_name">№8 Частные варианты интегрирования тригонометрических функций 3.0</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="h"></div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <span><div id="h_prim_1" style="display: inline-block"></div>&ensp;m / n - нечетная степень</span>
+                        <span><div id="h_prim_2" style="display: inline-block"></div>&ensp;m и n - чётные</span>
+                        <div id="h_prim_3"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span><input type="checkbox" id="ch_v" value="1" onchange='fokus("ch_v", "k_v")'> 1</span>
+                        <span><input type="checkbox" id="ch_w" value="2" onchange='fokus("ch_w", "k_w")'> 2</span>
+                        <span><input type="checkbox" id="ch_x" value="3" onchange='fokus("ch_x", "k_x")'> 3</span>
+                    </article>
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_v" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_w" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_x" disabled>
+                    </article>
+                </section>
+            </div>
+            <hr>
+            <div class="integ">
+                <section class="num_name">№9</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="i"></div>
+                    <div id="i_full">
+                        <div id="i_nazv_1"></div>
+                        <div id="i_nazv_2"></div>
+                    </div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <div id="i_prim_1"></div>
+                        <div id="i_prim_2"></div>
+                        <div id="i_prim_3"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span><input type="checkbox" id="ch_y" value="1" onchange='fokus("ch_y", "k_y")'> 1</span>
+                        <span><input type="checkbox" id="ch_z" value="2" onchange='fokus("ch_z", "k_z")'> 2</span>
+                        <!--<span><input type="checkbox" id="ch_aa" value="3" onchange='fokus("ch_aa", "k_aa")'> 3 - Сложный</span>-->
+                    </article>
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_y" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_z" disabled>
+                        <!--<input type="text" size="3" maxlength="1" id="k_aa" disabled>-->
+                    </article>
+                </section>
+            </div>
+            <hr>
+            <div class="integ">
+                <section class="num_name">№10</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="j_full">
+                        <div id="j_nazv_1"></div>
+                        <div id="j_nazv_2"></div>
+                        <div id="j_nazv_3"></div>
+                    </div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <div id="j_prim_1"></div>
+                        <div id="j_prim_2"></div>
+                        <div id="j_prim_3"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span><input type="checkbox" id="ch_bb" value="1" onchange='fokus("ch_bb", "k_bb")'> Простой</span>
+                        <span><input type="checkbox" id="ch_cc" value="2" onchange='fokus("ch_cc", "k_cc")'> Средний</span>
+                        <span><input type="checkbox" id="ch_dd" value="3" onchange='fokus("ch_dd", "k_dd")'> Сложный</span>
+                    </article>
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_bb" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_cc" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_dd" disabled>
+                    </article>
+                </section>
+            </div>
+            <hr>
+            <div class="integ">
+                <section class="num_name">№11</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="k_full">
+                        <div id="k_nazv_1"></div>
+                        <div id="k_nazv_2"></div>
+                        <div id="k_nazv_3"></div>
+                    </div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <div id="k_prim_1"></div>
+                        <div id="k_prim_2"></div>
+                        <div id="k_prim_3"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span><input type="checkbox" id="ch_ee" value="1" onchange='fokus("ch_ee", "k_ee")'> 1 </span>
+                        <span><input type="checkbox" id="ch_ff" value="2" onchange='fokus("ch_ff", "k_ff")'> 2 </span>
+                        <span><input type="checkbox" id="ch_gg" value="3" onchange='fokus("ch_gg", "k_gg")'> 3 </span>
+                    </article>
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_ee" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_ff" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_gg" disabled>
+                    </article>
+                </section>
+            </div>
+            <hr>
+            <div class="integ">
+                <section class="num_name">№12</section>
+                <section class="opisanie">
+                    <!-- Вывод общего вида -->
+                    <div id="l"></div>
+                    <!-- Вывод примеров -->
+                    <article class="examples">
+                        <div id="l_prim_1"></div>
+                        <div id="l_prim_2"></div>
+                        <div id="l_prim_3"></div>
+                    </article>
+                    <!-- Вывод выбора сложности, количества -->
+                    <article class="slozn">
+                        <span><input type="checkbox" id="ch_hh" value="1" onchange='fokus("ch_hh", "k_hh")'> Простой</span>
+                        <span><input type="checkbox" id="ch_ii" value="2" onchange='fokus("ch_ii", "k_ii")'> Средний</span>
+                        <span><input type="checkbox" id="ch_jj" value="3" onchange='fokus("ch_jj", "k_jj")'> Сложный</span>
+                    </article>
+                    <article class="kolvo">
+                        <input type="text" size="3" maxlength="1" id="k_hh" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_ii" disabled>
+                        <input type="text" size="3" maxlength="1" id="k_jj" disabled>
+                    </article>
+                </section>
+            </div>
+            <hr>
+
+            <!--                                
+            <div class="integ">
+                <div>13</div>
+                <div id="m"></div>
+                <article class="slozn">
+                    <span><input type="checkbox" id="ch_kk" value="1" onchange='fokus("ch_kk", "k_kk")'> 1 - Простой</span>
+                    <span><input type="checkbox" id="ch_ll" value="2" onchange='fokus("ch_ll", "k_ll")'> 2 - Средний</span>
+                    <span><input type="checkbox" id="ch_mm" value="3" onchange='fokus("ch_mm", "k_mm")'> 3 - Сложный</span>
+                </article>
+                <article class="kolvo">
+                    <input type="text" size="3" maxlength="1" id="k_kk" disabled>
+                    <input type="text" size="3" maxlength="1" id="k_ll" disabled>
+                    <input type="text" size="3" maxlength="1" id="k_mm" disabled>
+                </article>
+            </div>
+            <hr>
+            <div class="integ">
+                <div>14</div>
+                <div id="n"></div>
+                <article class="slozn">
+                    <span><input type="checkbox" id="ch_nn" value="1" onchange='fokus("ch_nn", "k_nn")'> 1 - Простой</span>
+                    <span><input type="checkbox" id="ch_oo" value="2" onchange='fokus("ch_oo", "k_oo")'> 2 - Средний</span>
+                    <span><input type="checkbox" id="ch_pp" value="3" onchange='fokus("ch_pp", "k_pp")'> 3 - Сложный</span>
+                </article>
+                <article class="kolvo">
+                    <input type="text" size="3" maxlength="1" id="k_nn" disabled>
+                    <input type="text" size="3" maxlength="1" id="k_oo" disabled>
+                    <input type="text" size="3" maxlength="1" id="k_pp" disabled>
+                </article>
+            </div>
+            <hr>
+            <div class="integ">
+                <div>15</div>
+                <div id="o"></div>
+                <article class="slozn">
+                    <span><input type="checkbox" id="ch_qq" value="1" onchange='fokus("ch_qq", "k_qq")'> 1 - Простой</span>
+                    <span><input type="checkbox" id="ch_rr" value="2" onchange='fokus("ch_rr", "k_rr")'> 2 - Средний</span>
+                    <span><input type="checkbox" id="ch_ss" value="3" onchange='fokus("ch_ss", "k_ss")'> 3 - Сложный</span>
+                </article>
+                <article class="kolvo">
+                    <input type="text" size="3" maxlength="1" id="k_qq" disabled>
+                    <input type="text" size="3" maxlength="1" id="k_rr" disabled>
+                    <input type="text" size="3" maxlength="1" id="k_ss" disabled>
+                </article>
+            </div>             -->
+        </section>
+        <input type="button" value="Создать" id="btnPr" onclick="fsbordann()">
+        <span id="shifr_p">
+            Код успешно сформирован! Передайте его студентам.
+            <section id="shifr"></section>
+        </span>
+    </main>
+
+    <script src="script_professor.js"></script>
+    <script src="katex/katex.min.js"></script>
+</body>
+
+</html>
