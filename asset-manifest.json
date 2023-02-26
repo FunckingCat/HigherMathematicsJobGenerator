@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/HigherMathematicsJobGenerator/static/css/main.331a3512.css",
-    "main.js": "/HigherMathematicsJobGenerator/static/js/main.9f016c04.js",
+    "main.js": "/HigherMathematicsJobGenerator/static/js/main.1b4c2aa6.js",
     "static/media/qr.jpg": "/HigherMathematicsJobGenerator/static/media/qr.4c1b72293b32f649a4fa.jpg",
     "static/media/logo.png": "/HigherMathematicsJobGenerator/static/media/logo.942d7292565e0cde7a7d.png",
     "index.html": "/HigherMathematicsJobGenerator/index.html",
     "main.331a3512.css.map": "/HigherMathematicsJobGenerator/static/css/main.331a3512.css.map",
-    "main.9f016c04.js.map": "/HigherMathematicsJobGenerator/static/js/main.9f016c04.js.map"
+    "main.1b4c2aa6.js.map": "/HigherMathematicsJobGenerator/static/js/main.1b4c2aa6.js.map"
   },
   "entrypoints": [
     "static/css/main.331a3512.css",
-    "static/js/main.9f016c04.js"
+    "static/js/main.1b4c2aa6.js"
   ]
 }
