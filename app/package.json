@@ -4,13 +4,24 @@
   "homepage": "https://funckingcat.github.io/HigherMathematicsJobGenerator/",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.12",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "antd": "^5.2.2",
+    "clsx": "^1.2.1",
     "katex": "^0.16.4",
+    "node-sass": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-hook-form": "^7.43.1",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -19,7 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "npx eslint --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -40,6 +52,19 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "@types/katex": "^0.16.0",
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "gh-pages": "^5.0.0",
+    "typescript": "^4.9.5"
   }
 }
