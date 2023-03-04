@@ -1,0 +1,59 @@
+@import 'app/design/mixins';
+
+.wrapper {
+  padding: var(--indent-size-s) 0;
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+}
+
+
+.section {
+  display: grid;
+  width: 100%;
+  gap: 1rem;
+  & > * {
+    width: 100%;
+  }
+}
+
+.sectionName {
+  @include text();
+  text-align: center;
+  margin-bottom: var(--indent-size-xs);
+}
+
+.sectionValues {
+  display: flex;
+  gap: 5rem;
+}
+
+.formulas {
+  display: grid;
+  align-items: center;
+  & > * {
+    display: flex;
+  }
+}
+
+.tasks {
+  display: grid;
+  width: 100%;
+}
+
+.difficult {
+  display: flex;
+}
+
+.taskContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.desc {
+  @include text();
+  margin-bottom: var(--indent-size-m);
+}
