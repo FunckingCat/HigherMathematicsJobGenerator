@@ -6,6 +6,7 @@ import { PATHS } from 'config';
 import { HomePage } from './home';
 import { ProfessorPage } from './professor';
 import { StudentPage } from './student';
+import { LoginPage } from './login';
 
 const routes: RouteObject[] = [
   {
@@ -19,6 +20,10 @@ const routes: RouteObject[] = [
   {
     path: PATHS.STUDENT,
     element: <StudentPage />
+  },
+  {
+    path: PATHS.LOGIN,
+    element: <LoginPage />
   }
 ];
 

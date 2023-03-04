@@ -1,12 +1,16 @@
 import { type FC } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
 
 import { AppRouter } from 'pages';
+import { store } from 'store';
 
 import './design/index.scss';
 
 export const App: FC = () => (
-  <BrowserRouter>
-    <AppRouter />
-  </BrowserRouter>
+  <HashRouter>
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
+  </HashRouter>
 );

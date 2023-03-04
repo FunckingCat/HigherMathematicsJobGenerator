@@ -1,5 +1,6 @@
 export const PATHS = {
   HOME: '/',
   PROFESSOR: '/professor',
-  STUDENT: '/student'
+  STUDENT: '/student',
+  LOGIN: '/login'
 } as const;

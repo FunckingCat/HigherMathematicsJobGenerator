@@ -1,7 +1,7 @@
 @import 'app/design/mixins';
 
 .wrapper {
-  padding: var(--indent-size-s) 0;
+  padding: var(--indent-size-s);
   display: grid;
   grid-template-areas: 'qr info'
                         'qr links';
@@ -49,9 +49,21 @@
 @media (max-width: 1200px) {
   .wrapper {
     grid-template-areas: 'qr'
-                         'info'
-                         'links';
+                        'info'
+                        'links';
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .qr {
+    display: none;
+  }
+
+  .wrapper {
+    grid-template-areas: 'info'
+                          'links';
+    grid-template-rows: auto auto;
   }
 }
