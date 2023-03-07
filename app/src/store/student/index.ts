@@ -1,2 +1,2 @@
 export { studentActions, studentReducer } from './slice';
-export { studentGroupSelector, studentHashSelector, studentNameSelector } from './selectors';
+export { studentHashSelector, studentNameSelector } from './selectors';
