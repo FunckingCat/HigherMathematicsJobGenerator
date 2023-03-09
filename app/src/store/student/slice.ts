@@ -8,7 +8,7 @@ import { type IStudentState } from './types';
 const initialState: IStudentState = {
   hash: null,
   name: null,
-  group: null
+  // group: null
 };
 
 export const { actions: studentActions, reducer: studentReducer } = createSlice({
