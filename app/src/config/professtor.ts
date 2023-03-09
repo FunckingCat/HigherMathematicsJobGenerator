@@ -6,7 +6,7 @@ export const PROFESSOR_CONFIG = {
       formulas: [
         {
           id: 1,
-          formula: '\\int{f(g(x))g\'(x)}dx'
+          formula: "\\int{f(g(x))g'(x)}dx"
         }
       ],
       tasks: [
@@ -19,15 +19,15 @@ export const PROFESSOR_CONFIG = {
         {
           id: 2,
           difficult: 'Средний',
-          task: '\\int{\\frac{sin(7\\sqrt{x}-2)}{\\sqrt{x}}}dx, ' +
-            '\\int{\\frac{coslnx}{x}}dx, \\int{\\frac{3^xdx}{2\\cdot3^{2x}+2}}',
+          task: '\\int{\\frac{sin(7\\sqrt{x}-2)}{\\sqrt{x}}}dx, \\int{\\frac{coslnx}{x}}dx, ' +
+            '\\int{\\frac{3^xdx}{2\\cdot3^{2x}+2}}',
           value: ''
         },
         {
           id: 3,
           difficult: 'Cложный',
-          task: '\\int{\\frac{dx}{\\sqrt{1+2e^x}}}, ' +
-            '\\int{\\frac{3^x+2}{3^x-5}}dx, \\int{\\frac{\\sqrt[6]{x}dx}{5+\\sqrt[3]{x}}}',
+          task: '\\int{\\frac{dx}{\\sqrt{1+2e^x}}}, \\int{\\frac{3^x+2}{3^x-5}}dx, ' +
+            '\\int{\\frac{\\sqrt[6]{x}dx}{5+\\sqrt[3]{x}}}',
           value: ''
         }
       ]
@@ -86,8 +86,8 @@ export const PROFESSOR_CONFIG = {
       formulas: [
         {
           id: 1,
-          formula: '\\int\\frac{P(x)}{Q(x)},\\ ' +
-            'где\\ P\\ и\\ Q\\ -\\ многочлены\\ степени\\ m\\ и\\ n'
+          formula: '\\int\\frac{P(x)}{Q(x)},\\ где\\ P\\ и\\ ' +
+            'Q\\ -\\ многочлены\\ степени\\ m\\ и\\ n'
         }
       ],
       tasks: [
@@ -155,8 +155,8 @@ export const PROFESSOR_CONFIG = {
       formulas: [
         {
           id: 1,
-          formula: '\\int\\frac{sinxdx}{\\sqrt{asin^2x+bcos^2x}}\\ ' +
-            'или \\int\\frac{cosxdx}{\\sqrt{asin^2x+bcos^2x}}'
+          formula: '\\int\\frac{sinxdx}{\\sqrt{asin^2x+bcos^2x}}\\ или ' +
+            '\\int\\frac{cosxdx}{\\sqrt{asin^2x+bcos^2x}}'
         },
         {
           id: 2,
@@ -164,7 +164,7 @@ export const PROFESSOR_CONFIG = {
         },
         {
           id: 3,
-          formula: '\\int\\frac{sin^mxdx}{cos^nx}, \\int{sin^mxcos^nxdx},' +
+          formula: '\\int\\frac{sin^mxdx}{cos^nx}, \\int{sin^mxcos^nxdx}, ' +
             '\\int{tg^mxcos^nxdx},\\ где\\ m\\ и\\ n\\ четные\\ (могут\\ быть\\ равны\\ 0)'
         }
       ],
@@ -230,8 +230,8 @@ export const PROFESSOR_CONFIG = {
         {
           id: 1,
           difficult: '1',
-          task: '\\int{sin^4x}\\cdot{cos^5x}dx, ' +
-            '\\int{\\frac{cos^56x}{sin^86x}}dx,\\ m\\ /\\ n\\ -\\ нечетная\\ степень',
+          task: '\\int{sin^4x}\\cdot{cos^5x}dx, \\int{\\frac{cos^56x}{sin^86x}}dx,' +
+            '\\ m\\ /\\ n\\ -\\ нечетная\\ степень',
           value: ''
         },
         {
