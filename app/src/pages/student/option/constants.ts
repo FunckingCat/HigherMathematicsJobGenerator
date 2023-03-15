@@ -24,7 +24,7 @@ export const TASKS = [
   {
     id: 2,
     name: 'Задание 2',
-    template: '[cos,sin] + [kx[power]]'
+    template: '[cos,sin] + [kx][power] + [cos,sin,tg]'
   }
 ];
 
@@ -35,9 +35,10 @@ export const templatesConfig = {
     power_max: 4
   },
   replacements: {
-    cos: 'cosx',
-    sin: '[odd] * sin([even] * x)',
-    kx: '[const] * x',
-    power: '^[const]'
+    cos: '(cos(x))',
+    tg: '(tg(x))',
+    sin: '([odd] * sin([even] * x))',
+    kx: '([const] * x)',
+    power: '^{[const]}'
   }
 };
