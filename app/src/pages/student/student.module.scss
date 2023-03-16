@@ -1,18 +1,6 @@
-@import 'app/design/mixins.scss';
-
 .wrapper {
-    padding: var(--indent-size-s) 0;
-    display: grid;
-    gap: 3rem;
-    justify-items: center;
-  }
-
-.sectionValue {
-    display: grid;
-    grid-template-columns: 3fr 3fr 1fr;
-    gap: 2rem;
-  }
-
-.button {
-    background: var(--dark-color);
+  padding: var(--indent-size-s) 0;
+  display: grid;
+  gap: 3rem;
+  justify-items: center;
 }
