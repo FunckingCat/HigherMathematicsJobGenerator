@@ -1,0 +1,1 @@
+export { professorActions, professorReducer } from './slice';
