@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 
 import { Page } from 'widgets';
-import { ButtonLink } from 'share';
+import { ButtonLink } from 'shared';
 import { PATHS } from 'config';
 import qr from 'assets/images/qr.jpg';
 

@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import { clsx } from 'clsx';
 
-import { Container, Logo } from 'share';
+import { Container, Logo } from 'shared';
 
 import { type HeaderPropsType } from './types';
 import styles from './header.module.scss';
