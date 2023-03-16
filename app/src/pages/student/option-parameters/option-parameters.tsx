@@ -1,8 +1,8 @@
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import { type FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student';
-import styles from '../student.module.scss';
+import styles from './option-parameters.module.scss';
 
 export const OptionParameters: FC = () => {
   const [name, setUsername] = useState('');
@@ -23,7 +23,8 @@ export const OptionParameters: FC = () => {
         Введите пожалуйста свою фамилию, имя и группу; код преподавателя
       </p>
       <div className={styles.sectionValue}>
-        <input
+        <Input
+          className={styles.inputOption}
           type="text"
           onChange={(e) => {
             setUsername(e.target.value);
@@ -31,7 +32,8 @@ export const OptionParameters: FC = () => {
           value={name}
           placeholder="Иванов Иван 211-321"
         />
-        <input
+        <Input
+          className={styles.inputOption}
           type="text"
           onChange={(e) => {
             setHash(e.target.value);
