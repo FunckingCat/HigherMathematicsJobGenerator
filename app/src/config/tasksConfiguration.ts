@@ -5,155 +5,80 @@ export const TASKS_CONFIGURATION = [
     templates: [
       {
         id: 1,
-        name: "Метод замены переменной",
+        name: 'Метод замены переменной',
         view: "\\int{f(g(x))g'(x)}dx",
-        template: ""
+        template: ''
       },
       {
         id: 2,
-        name: "Метод интегрирования по частям",
-        view: "\\int{udv} = uv - \\int{vdu}",
-        template: ""
+        name: 'Метод интегрирования по частям',
+        view: '\\int{udv} = uv - \\int{vdu}',
+        template: ''
       },
       {
         id: 3,
-        name: "",
-        view: "\\int{f(x)e^{kx}}dx",
-        template: ""
+        name: '',
+        view: '\\int{f(x)e^{kx}}dx',
+        template: ''
       },
       {
         id: 4,
-        name: "Интегрирование рациональных дробей",
-        view: "\\int\\frac{P(x)}{Q(x)},\\ где\\ P\\ и\\ Q\\ -\\ многочлены\\ степени\\ m\\ и\\ n",
-        template: "",
+        name: 'Интегрирование рациональных дробей',
+        view: '\\int\\frac{P(x)}{Q(x)},\\ где\\ P\\ и\\ Q\\ -\\ многочлены\\ степени\\ m\\ и\\ n',
+        template: ''
       },
       {
         id: 5,
-        name: "Универсальная Тригонометрическая подстановка",
-        view: "\\int\\frac{dx}{asinx+bcosx+c}",
-        template: "",
+        name: 'Универсальная Тригонометрическая подстановка',
+        view: '\\int\\frac{dx}{asinx+bcosx+c}',
+        template: ''
       },
       {
         id: 6,
-        name: "",
-        view: "\\int\\frac{sinxdx}{\\sqrt{asin^2x+bcos^2x}}\\ или \\int\\frac{cosxdx}{\\sqrt{asin^2x+bcos^2x}}",
-        template: "",
+        name: '',
+        // eslint-disable-next-line max-len
+        view: '\\int\\frac{sinxdx}{\\sqrt{asin^2x+bcos^2x}}\\ или \\int\\frac{cosxdx}{\\sqrt{asin^2x+bcos^2x}}',
+        template: ''
       },
       {
         id: 7,
-        name: "Частные варианты интегрирования тригонометрических функций 2.0",
-        view: "\\int{sinax}\\cdot{cosbx}dx",
-        template: "",
+        name: 'Частные варианты интегрирования тригонометрических функций 2.0',
+        view: '\\int{sinax}\\cdot{cosbx}dx',
+        template: ''
       },
       {
         id: 8,
-        name: "Частные варианты интегрирования тригонометрических функций 3.0",
-        view: "\\int{sin^mx}\\cdot{cos^nx}dx",
-        template: "",
+        name: 'Частные варианты интегрирования тригонометрических функций 3.0',
+        view: '\\int{sin^mx}\\cdot{cos^nx}dx',
+        template: ''
       },
       {
         id: 9,
-        name: "",
-        view: "\\int{R(x,x^{\\frac{p1}{q1}},,x^{\\frac{p2}{q2}}, ..., ,x^{\\frac{pn}{qn}})}dx",
-        template: "",
+        name: '',
+        view: '\\int{R(x,x^{\\frac{p1}{q1}},,x^{\\frac{p2}{q2}}, ..., ,x^{\\frac{pn}{qn}})}dx',
+        template: ''
       },
       {
         id: 10,
-        name: "",
-        view: "\\int{\\frac{dx}{\\sqrt{ax^2+bx+c}}}",
-        template: "",
+        name: '',
+        view: '\\int{\\frac{dx}{\\sqrt{ax^2+bx+c}}}',
+        template: ''
       },
       {
         id: 11,
-        name: "",
-        view: "\\int{R(x,\\sqrt{a^2-x^2})}dx",
-        template: "",
+        name: '',
+        view: '\\int{R(x,\\sqrt{a^2-x^2})}dx',
+        template: ''
       },
       {
         id: 12,
-        name: "\\int{R(x, \\sqrt{ax^2+bx+c})}dx",
-        view: "",
-        template: "",
+        name: '',
+        view: '\\int{R(x, \\sqrt{ax^2+bx+c})}dx',
+        template: ''
       }
     ]
-  },
+  }
   // integrals: [
-  //   {
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "Простой",
-  //         task: "\\int{sin(3x+1)}dx, \\int{\\frac{dx}{5-2x}}, \\int{e^{3x}}dx",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 2,
-  //         difficult: "Средний",
-  //         task: "\\int{\\frac{sin(7\\sqrt{x}-2)}{\\sqrt{x}}}dx, \\int{\\frac{coslnx}{x}}dx, \\int{\\frac{3^xdx}{2\\cdot3^{2x}+2}}",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 3,
-  //         difficult: "Cложный",
-  //         task: "\\int{\\frac{dx}{\\sqrt{1+2e^x}}}, \\int{\\frac{3^x+2}{3^x-5}}dx, \\int{\\frac{\\sqrt[6]{x}dx}{5+\\sqrt[3]{x}}}",
-  //         value: ""
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "Простой",
-  //         task: "\\int{x^2cosx}dx, \\int{xe^x}dx, \\int{lnx}dx",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 2,
-  //         difficult: "Средний",
-  //         task: "\\int{e^{\\sqrt{3x+1}}}dx, \\int{(x^2+3x)sin2x}dx, \\int{12^xarctg12^x}dx",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 3,
-  //         difficult: "Cложный",
-  //         task: "\\int{ln(2x^2+x+4)}dx, \\int{x^2arctg(3x^3+1)}dx, \\int{\\frac{dx}{(x^2+3^2)^4}}",
-  //         value: ""
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "Выбрать",
-  //         task: "\\int{e^{5x}cos4x}dx, \\int{e^xsin3x}dx",
-  //         value: ""
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "m < n; Q(x) раскладывается на множители 1 степени",
-  //         task: "\\int{\\frac{(x-3)dx}{(x-2)(x+3)}}, \\int{\\frac{xdx}{(x^2-5x+6)}}",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 2,
-  //         difficult: "m < n; Q(x) раскладывается на множители 1 степени и 2",
-  //         task: "\\int{\\frac{(3x+1)dx}{(x-1)(x^2+3x)+15}}, \\int{\\frac{dx}{(x^3-8)}}",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 3,
-  //         difficult: "m > n",
-  //         task: "\\int{\\frac{(x^4-3)dx}{x^2+2x+1}}",
-  //         value: ""
-  //       }
-  //     ]
-  //   },
   //   {
   //     formulas: [
   //       {
@@ -169,33 +94,13 @@ export const TASKS_CONFIGURATION = [
   //         formula: "\\int\\frac{dx}{asin^mkx+bcos^nkx+c},\\  где\\ m\\ +\\ n\\ =\\ 3"
   //       }
   //     ],
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "1",
-  //         task: "\\int\\frac{dx}{sinx+3cosx}, \\int\\frac{dx}{2sinx+cosx+1}",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 2,
-  //         difficult: "2",
-  //         task: "\\int\\frac{dx}{2sin3x+cos3x+7}",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 3,
-  //         difficult: "3",
-  //         task: "\\int\\frac{dx}{sin3x+7cos^23x+5}",
-  //         value: ""
-  //       }
-  //     ]
-  //   },
   //   {
   //     id: 6,
   //     name: "",
   //     formulas: [
   //       {
   //         id: 1,
+  // eslint-disable-next-line max-len
   //         formula: "\\int\\frac{sinxdx}{\\sqrt{asin^2x+bcos^2x}}\\ или \\int\\frac{cosxdx}{\\sqrt{asin^2x+bcos^2x}}"
   //       },
   //       {
@@ -204,30 +109,10 @@ export const TASKS_CONFIGURATION = [
   //       },
   //       {
   //         id: 3,
+  // eslint-disable-next-line max-len
   //         formula: "\\int\\frac{sin^mxdx}{cos^nx}, \\int{sin^mxcos^nxdx}, \\int{tg^mxcos^nxdx},\\ где\\ m\\ и\\ n\\ четные\\ (могут\\ быть\\ равны\\ 0)"
   //       }
   //     ],
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "1",
-  //         task: "\\int\\frac{cosxdx}{\\sqrt{3sin^2x+7cos^2x}}",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 2,
-  //         difficult: "2",
-  //         task: "\\int\\frac{sin^3xdx}{cosx-3}",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 3,
-  //         difficult: "3",
-  //         task: "\\int{tg^65xdx}, \\int{\\frac{dx}{sin^63x}}",
-  //         value: ""
-  //       }
-  //     ]
-  //   },
   //   {
   //     id: 7,
   //     name: "Частные варианты интегрирования тригонометрических функций 2.0",
@@ -241,78 +126,30 @@ export const TASKS_CONFIGURATION = [
   //         formula: "\\int{sinax}\\cdot{cosbx}\\cdot{sincx}dx\\ или \\int{sinax}\\cdot{cos^2bx}dx"
   //       }
   //     ],
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "Простой",
-  //         task: "\\int{sin2x}\\cdot{cos3x}dx",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 2,
-  //         difficult: "Средний",
-  //         task: "\\int{sin2x}\\cdot{cos4x}\\cdot{sin5x}dx, \\int{sin7x}\\cdot{cos^24x}dx",
-  //         value: ""
-  //       }
-  //     ]
   //   },
   //   {
   //     id: 8,
-  //     name: "Частные варианты интегрирования тригонометрических функций 3.0",
   //     formulas: [
   //       {
   //         id: 1,
   //         formula: "\\int{sin^mx}\\cdot{cos^nx}dx"
   //       }
   //     ],
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "1",
-  //         task: "\\int{sin^4x}\\cdot{cos^5x}dx, \\int{\\frac{cos^56x}{sin^86x}}dx,\\ m\\ /\\ n\\ -\\ нечетная\\ степень",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 2,
-  //         difficult: "2",
-  //         task: "\\int{\\frac{cos^4x}{sin^6x}}dx,\\ m\\ и\\ n\\ -\\ чётные",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 3,
-  //         difficult: "3",
-  //         task: "\\int{\\frac{sin^2x}{cos^62x}}dx, \\int{\\frac{\\sqrt[3]{cosx}}{\\sqrt[3]{cos^{13}x}}}dx",
-  //         value: ""
-  //       }
-  //     ]
-  //   },
   //   {
   //     id: 9,
   //     name: "",
   //     formulas: [
   //       {
   //         id: 1,
+  // eslint-disable-next-line max-len
   //         formula: "\\int{R(x,x^{\\frac{p1}{q1}},,x^{\\frac{p2}{q2}}, ..., ,x^{\\frac{pn}{qn}})}dx"
   //       },
   //       {
   //         id: 2,
+  // eslint-disable-next-line max-len
   //         formula: "\\int{R(x,(\\frac{ax+b}{cx+d})^{\\frac{p1}{q1}}, (\\frac{ax+b}{cx+d})^{\\frac{p2}{q2}}, ...,(\\frac{ax+b}{cx+d})^{\\frac{pn}{qn}})}dx"
   //       }
   //     ],
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "1",
-  //         task: "\\int{\\frac{x+\\sqrt[3]{x^2}+\\sqrt[6]{x}}{x(1+\\sqrt[3]{x})}}dx",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 2,
-  //         difficult: "2",
-  //         task: "\\int{\\frac{1}{(1-x)^2}\\cdot{\\sqrt{\\frac{1-x}{1+x}}}}dx",
-  //         value: ""
-  //       }
-  //     ]
   //   },
   //   {
   //     id: 10,
@@ -331,26 +168,6 @@ export const TASKS_CONFIGURATION = [
   //         formula: "\\int{\\frac{dx}{(x+d)\\sqrt{ax^2+bx+c}}}"
   //       }
   //     ],
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "Простой",
-  //         task: "\\int{\\frac{dx}{\\sqrt{x^2+8x+13}}}dx",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 2,
-  //         difficult: "Средний",
-  //         task: "\\int{\\frac{(x+5)dx}{\\sqrt{x^2+x+1}}}",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 3,
-  //         difficult: "Сложный",
-  //         task: "\\int{\\frac{dx}{(x+8)\\sqrt{x^2-5x-2}}}",
-  //         value: ""
-  //       }
-  //     ]
   //   },
   //   {
   //     id: 11,
@@ -369,26 +186,6 @@ export const TASKS_CONFIGURATION = [
   //         formula: "\\int{R(x,\\sqrt{x^2-a^2})}dx"
   //       }
   //     ],
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "1",
-  //         task: "\\int{\\frac{dx}{\\sqrt{(2-x^2)^3}}}, \\int{\\frac{x^2dx}{\\sqrt{3-x^2}}}",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 2,
-  //         difficult: "2",
-  //         task: "\\int{\\frac{dx}{x^2\\sqrt{x^2+7}}}, \\int{\\frac{\\sqrt{4+x^2}}{x^4}}",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 3,
-  //         difficult: "3",
-  //         task: "\\int{\\frac{dx}{(x^2+2)\\sqrt{x^2-1}}}, \\int{\\frac{\\sqrt{x^2-17}}{x^2}}",
-  //         value: ""
-  //       }
-  //     ]
   //   },
   //   {
   //     id: 12,
@@ -399,26 +196,6 @@ export const TASKS_CONFIGURATION = [
   //         formula: "\\int{R(x, \\sqrt{ax^2+bx+c})}dx"
   //       }
   //     ],
-  //     tasks: [
-  //       {
-  //         id: 1,
-  //         difficult: "Простой",
-  //         task: "\\int{\\frac{dx}{\\sqrt{(5+2x+x^2)^3}}}",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 2,
-  //         difficult: "Средний",
-  //         task: "\\int{(x+1)\\sqrt{x^2+4x+1}}dx",
-  //         value: ""
-  //       },
-  //       {
-  //         id: 3,
-  //         difficult: "Сложный",
-  //         task: "\\int{x^2\\sqrt{8-x^2}}dx",
-  //         value: ""
-  //       }
-  //     ]
   //   }
   // ]
-]
+];
