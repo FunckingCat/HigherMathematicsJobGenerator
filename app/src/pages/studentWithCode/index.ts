@@ -1,0 +1,1 @@
+export { StudentPageWithCode } from './student';
