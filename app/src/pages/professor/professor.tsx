@@ -7,7 +7,11 @@ import { BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 
 import { Button, Select, Slider } from 'antd';
+import { useDispatch } from 'react-redux';
+import { taskActions } from 'store/task';
 import styles from './professor.module.scss';
+
+import { type ITemplateProps } from './types';
 
 const sections =
     TASKS_CONFIGURATION.map((task) => ({ value: task.section, label: task.section_name }));
@@ -15,9 +19,8 @@ const sections =
 export const ProfessorPage: FC = () => {
   const [sectionName, setSectionName] = useState('integrals');
   const [section, setSection] = useState(TASKS_CONFIGURATION[0]);
-  const [sectionValues, setSectionValues] = useState(section.templates.map(template => {
-    return { id: template.id, value: 0 }
-  }));
+  const [sectionValues, setSectionValues] =
+      useState(section.templates.map((template) => ({ id: template.id, value: 0 })));
 
   useEffect(() => {
     if (section.section !== sectionName) {
@@ -26,10 +29,9 @@ export const ProfessorPage: FC = () => {
         TASKS_CONFIGURATION[0];
       setSection(newSection);
 
-      const newSectionValues = newSection.templates.map(template => {
-        return { id: template.id, value: 0 }
-      })
-      setSectionValues(newSectionValues)
+      const newSectionValues =
+          newSection.templates.map((template) => ({ id: template.id, value: 0 }));
+      setSectionValues(newSectionValues);
     }
   }, [sectionName]);
 
@@ -44,15 +46,41 @@ export const ProfessorPage: FC = () => {
         <p className={styles.sectionName}>
           {section.section_name}
         </p>
-        {section.templates.map((template) => (
-          <div key={template.id} className={styles.templateContainer}>
-            <BlockMath>{template.view}</BlockMath>
-            <BlockMath>{template.template}</BlockMath>
-            <Slider className={styles.templateSlider} defaultValue={0} max={10} />
-          </div>
-        ))}
+        {section.templates.map((template) => <Template key={template.id} template={template} />)}
       </div>
       <Button type="primary">Сгенерировать код варианта</Button>
     </Page>
+  );
+};
+
+const Template: FC<ITemplateProps> = ({ template }) => {
+  const [value, setValue] = useState(0);
+
+  const dispatch = useDispatch();
+
+  const handleChange = (newValue: number) => {
+    setValue(newValue);
+
+    if (newValue === 0) {
+      dispatch(taskActions.removeTask({ id: template.id }));
+      return;
+    }
+    dispatch(taskActions.addSelectedTask({
+      id: template.id,
+      amount: newValue
+    }));
+  };
+
+  return (
+    <div className={styles.templateContainer}>
+      <BlockMath>{template.view}</BlockMath>
+      <BlockMath>{template.template}</BlockMath>
+      <Slider
+        className={styles.templateSlider}
+        value={value}
+        onChange={(newValue) => { handleChange(newValue); }}
+        max={10}
+      />
+    </div>
   );
 };
