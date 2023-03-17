@@ -3,6 +3,5 @@ export interface IProfessorState {
   values: number[] | null
 }
 
-export type IProfessorSection = Pick<IProfessorState, 'section'>
-export type IProfessorValues = Pick<IProfessorState, 'values'>
-  
+export type IProfessorSection = Pick<IProfessorState, 'section'>;
+export type IProfessorValues = Pick<IProfessorState, 'values'>;

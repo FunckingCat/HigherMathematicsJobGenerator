@@ -1,8 +1,8 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { type NonNullableFields } from 'share';
+import { type NonNullableFields } from 'shared';
 
 import { REDUCER_NAMES } from '../constants';
-import { type IProfessorState, IProfessorSection, IProfessorValues } from './types';
+import { type IProfessorState, type IProfessorSection, type IProfessorValues } from './types';
 
 const initialState: IProfessorState = {
   section: null,
@@ -10,7 +10,7 @@ const initialState: IProfessorState = {
 };
 
 export const { actions: professorActions, reducer: professorReducer } = createSlice({
-  name: REDUCER_NAMES.STUDENT,
+  name: REDUCER_NAMES.PROFESSOR,
   initialState,
   reducers: {
     setSection: (state, { payload }: PayloadAction<NonNullableFields<IProfessorSection>>) => ({
@@ -20,6 +20,6 @@ export const { actions: professorActions, reducer: professorReducer } = createSl
     setValues: (state, { payload }: PayloadAction<NonNullableFields<IProfessorValues>>) => ({
       ...state,
       values: payload.values
-    }),
+    })
   }
 });
