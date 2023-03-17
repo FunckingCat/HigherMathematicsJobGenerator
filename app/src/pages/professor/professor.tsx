@@ -1,62 +1,58 @@
 import { type FC, useEffect, useRef, useState } from 'react';
 
 import { Page } from 'widgets';
-import { PROFESSOR_CONFIG } from 'config';
+import { TASKS_CONFIGURATION } from 'config';
 
 import { BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 
-import { type ITaskProps } from './types';
+import { Button, Select, Slider } from 'antd';
 import styles from './professor.module.scss';
 
-export const ProfessorPage: FC = () => (
-  <Page className={styles.wrapper}>
-    {PROFESSOR_CONFIG.task_sections.map((section) => (
-      <div key={section.id} className={styles.section}>
-        <p className={styles.sectionName}>
-          №
-          {section.id}
-          {' '}
-          {section.name}
-        </p>
-        <div className={styles.sectionValues}>
-          <div className={styles.formulas}>
-            {section.formulas.map((formula) => (
-              <BlockMath key={formula.id}>{formula.formula}</BlockMath>
-            ))}
-          </div>
-          <div className={styles.tasks}>
-            {section.tasks.map((task) => <Task key={task.id} task={task} />)}
-          </div>
-        </div>
-        <hr />
-      </div>
-    ))}
-  </Page>
-);
+const sections =
+    TASKS_CONFIGURATION.map((task) => ({ value: task.section, label: task.section_name }));
 
-const Task: FC<ITaskProps> = ({ task }) => {
-  const [disabled, setDisabled] = useState(true);
-  const countRef = useRef<HTMLInputElement>(null);
-
-  const handleChange = () => {
-    setDisabled((prev) => !prev);
-  };
+export const ProfessorPage: FC = () => {
+  const [sectionName, setSectionName] = useState('integrals');
+  const [section, setSection] = useState(TASKS_CONFIGURATION[0]);
+  const [sectionValues, setSectionValues] = useState(section.templates.map(template => {
+    return { id: template.id, value: 0 }
+  }));
 
   useEffect(() => {
-    if (!disabled) {
-      countRef.current?.focus();
+    if (section.section !== sectionName) {
+      const newSection =
+        TASKS_CONFIGURATION.find((item) => item.section === sectionName) ??
+        TASKS_CONFIGURATION[0];
+      setSection(newSection);
+
+      const newSectionValues = newSection.templates.map(template => {
+        return { id: template.id, value: 0 }
+      })
+      setSectionValues(newSectionValues)
     }
-  }, [disabled]);
+  }, [sectionName]);
 
   return (
-    <div className={styles.taskContainer}>
-      <BlockMath>{task.task}</BlockMath>
-      <label htmlFor={task.task} className={styles.difficult}>
-        <input id={task.task} type="checkbox" onChange={handleChange} />
-        <p>{task.difficult}</p>
-      </label>
-      <input type="number" disabled={disabled} ref={countRef} />
-    </div>
+    <Page className={styles.wrapper}>
+      <div className={styles.section}>
+        <Select
+          value={sectionName}
+          onChange={(val) => { setSectionName(val); }}
+          options={sections}
+        />
+        <p className={styles.sectionName}>
+          {section.section_name}
+        </p>
+        {section.templates.map((template) => (
+          <div key={template.id} className={styles.templateContainer}>
+            <BlockMath>{template.view}</BlockMath>
+            <BlockMath>{template.template}</BlockMath>
+            <Slider className={styles.templateSlider} defaultValue={0} max={10} />
+          </div>
+        ))}
+      </div>
+      <Button type="primary">Сгенерировать код варианта</Button>
+    </Page>
   );
 };

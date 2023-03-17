@@ -1,5 +1,5 @@
-import { type PROFESSOR_CONFIG } from 'config';
+import { type TASKS_CONFIGURATION } from 'config';
 
-export interface ITaskProps {
-  task: typeof PROFESSOR_CONFIG.task_sections[0]['tasks'][0]
+export interface ITemplateProps {
+  template: typeof TASKS_CONFIGURATION[0]['templates'][0]
 }
