@@ -1,6 +1,6 @@
 import { type Dispatch } from '@reduxjs/toolkit';
 
-import { type ValueOf } from 'share';
+import { type ValueOf } from 'shared';
 
 import { type store } from './store';
 import { type studentActions } from './student';

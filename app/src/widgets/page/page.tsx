@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 
-import { Container } from 'share';
+import { Container } from 'shared';
 
 import { Header } from '../header';
 import { type PagePropsType } from './types';
