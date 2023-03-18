@@ -22,6 +22,10 @@ const routes: RouteObject[] = [
     element: <StudentPage />
   },
   {
+    path: PATHS.STUDENT_OPTION,
+    element: <StudentPage />
+  },
+  {
     path: PATHS.LOGIN,
     element: <LoginPage />
   }
