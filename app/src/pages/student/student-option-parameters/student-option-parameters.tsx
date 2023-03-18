@@ -29,7 +29,7 @@ export const StudentOptionParameters: FC = () => {
   return (
     <>
       <p>
-        Введите пожалуйста свою фамилию, имя и группу; код преподавателя
+        Введите пожалуйста свою фамилию, имя и группу
       </p>
       <div className={styles.sectionValue}>
         <Input
