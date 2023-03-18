@@ -7,7 +7,6 @@ import styles from './option-parameters.module.scss';
 export const OptionParameters: FC = () => {
   const [name, setUsername] = useState('');
   const [hash, setHash] = useState('');
-
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -16,6 +15,7 @@ export const OptionParameters: FC = () => {
       name
     }));
   };
+  const isButtonDisabled = !name || !hash;
 
   return (
     <>
@@ -41,7 +41,14 @@ export const OptionParameters: FC = () => {
           value={hash}
           placeholder="************"
         />
-        <Button type="primary" className={styles.button} onClick={handleClick}>Создать</Button>
+        <Button
+          type="primary"
+          className={styles.button}
+          onClick={handleClick}
+          disabled={isButtonDisabled}
+        >
+          Создать
+        </Button>
       </div>
     </>
   );
