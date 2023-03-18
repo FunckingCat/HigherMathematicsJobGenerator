@@ -1,5 +1,4 @@
 export const REDUCER_NAMES = {
   STUDENT: 'student',
-  TASK: 'task',
-  PROFESSOR: 'professor'
+  TASK: 'task'
 } as const;

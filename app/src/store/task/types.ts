@@ -3,6 +3,10 @@ export interface ISelectedTask {
   amount: number
 }
 
+export interface IRemoveTask {
+  id: number
+}
+
 export interface ITaskState {
   selectedTasks: ISelectedTask[]
 }
