@@ -67,6 +67,12 @@
   width: 10rem;
 }
 
+.slider {
+  display: flex;
+  gap: 1rem;
+  align-items: center
+}
+
 .desc {
   @include text();
   margin-bottom: var(--indent-size-m);

@@ -19,8 +19,6 @@ const sections =
 export const ProfessorPage: FC = () => {
   const [sectionName, setSectionName] = useState('integrals');
   const [section, setSection] = useState(TASKS_CONFIGURATION[0]);
-  const [sectionValues, setSectionValues] =
-      useState(section.templates.map((template) => ({ id: template.id, value: 0 })));
 
   useEffect(() => {
     if (section.section !== sectionName) {
@@ -28,10 +26,6 @@ export const ProfessorPage: FC = () => {
         TASKS_CONFIGURATION.find((item) => item.section === sectionName) ??
         TASKS_CONFIGURATION[0];
       setSection(newSection);
-
-      const newSectionValues =
-          newSection.templates.map((template) => ({ id: template.id, value: 0 }));
-      setSectionValues(newSectionValues);
     }
   }, [sectionName]);
 
@@ -65,7 +59,7 @@ const Template: FC<ITemplateProps> = ({ template }) => {
       dispatch(taskActions.removeTask({ id: template.id }));
       return;
     }
-    dispatch(taskActions.addSelectedTask({
+    dispatch(taskActions.editSelectedTask({
       id: template.id,
       amount: newValue
     }));
@@ -75,12 +69,15 @@ const Template: FC<ITemplateProps> = ({ template }) => {
     <div className={styles.templateContainer}>
       <BlockMath>{template.view}</BlockMath>
       <BlockMath>{template.template}</BlockMath>
-      <Slider
-        className={styles.templateSlider}
-        value={value}
-        onChange={(newValue) => { handleChange(newValue); }}
-        max={10}
-      />
+      <div className={styles.slider}>
+        <p>{ value }</p>
+        <Slider
+          className={styles.templateSlider}
+          value={value}
+          onChange={(newValue) => { handleChange(newValue); }}
+          max={10}
+        />
+      </div>
     </div>
   );
 };
