@@ -1,7 +1,8 @@
 import { type FC } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath } from 'react-katex';
-import { OPTION, TASKS } from './constants';
+import { TASKS } from 'config';
+import { OPTION } from './constants';
 import { parseTask } from './helpers';
 
 export const Option: FC = () => {
