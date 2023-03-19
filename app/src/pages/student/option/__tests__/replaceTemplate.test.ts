@@ -9,5 +9,5 @@ test('no templates to replace', () => {
 test('templates to replace', () => {
   const task = '[sin] + [kx][power] + [tg]';
   const result = replaceTemplate(task);
-  expect(result).toBe('([odd] * sin([even] * x)) + ([const] * x)^[const] + (tg(x))');
+  expect(result).toBe('([odd] * sin([even] * x)) + ([const] * x)^{[const]} + (tg(x))');
 });

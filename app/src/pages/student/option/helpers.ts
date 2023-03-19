@@ -1,12 +1,7 @@
-import { templatesConfig } from './constants';
+import { templatesConfig } from 'config';
 
-function getRandomNumberFromHash (hash: string) {
-  // TODO: Давид обещал получше реализовать эту функцию генерации случайного числа по hash
-  return hash.slice(-1).charCodeAt(0);
-}
-
-export function chooseTemplate (task: string, userHash: string) {
-  const stableRandomNumber = getRandomNumberFromHash(userHash);
+export function chooseTemplate (task: string, getRandomNumber: () => number) {
+  const stableRandomNumber = getRandomNumber();
 
   return task.replace(/\[([^\]]*,.*?)]/g, (_, templatesString) => {
     const templates: string[] = templatesString.split(',');
@@ -22,8 +17,8 @@ export function replaceTemplate (task: string) {
   ));
 }
 
-export function replaceConstants (task: string, userHash: string) {
-  const stableRandomNumber = getRandomNumberFromHash(userHash);
+export function replaceConstants (task: string, getRandomNumber: () => number) {
+  const stableRandomNumber = getRandomNumber();
 
   return task.replace(/\[(.*?)]/g, (_, template) => {
     if (template === 'const') {
@@ -39,6 +34,27 @@ export function replaceConstants (task: string, userHash: string) {
   });
 }
 
+export function getNumberFromChar (char: string, min: number, max: number) {
+  const charCode = char.charCodeAt(0);
+  const range = max - min;
+  return charCode % range + min;
+}
+
+export function createHashFunction (hash: string) {
+  let counter = 0;
+
+  return function getRandomNumber () {
+    if (counter > hash.length) {
+      counter = 0;
+    }
+    const { constMin, constMax } = templatesConfig.bounds;
+    const numberFromChar = getNumberFromChar(hash[counter], constMin, constMax);
+    counter += 1;
+    return numberFromChar;
+  };
+}
+
 export function parseTask (task: string, userHash: string) {
-  return replaceConstants(replaceTemplate(chooseTemplate(task, userHash)), userHash);
+  const getRandomNumber = createHashFunction(userHash);
+  return replaceConstants(replaceTemplate(chooseTemplate(task, getRandomNumber)), getRandomNumber);
 }
