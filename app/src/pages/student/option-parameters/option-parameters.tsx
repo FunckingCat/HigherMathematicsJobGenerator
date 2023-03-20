@@ -1,4 +1,4 @@
-import { Button, Input } from 'antd';
+import { Button, Input, message } from 'antd';
 import { type FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student';
@@ -15,14 +15,19 @@ export const OptionParameters: FC = () => {
   const handleClick = () => {
     const hashedName = SHA512(name).toString();
     const decodeTasks = (encodedTasks: string): ISelectedTask[] => {
-      const decodedString = atob(encodedTasks);
-      const tasks: ISelectedTask[] = JSON.parse(decodedString, (key, value) => {
-        if (key === 'id' || key === 'amount') {
-          return Number(value);
-        }
-        return value;
-      });
-      return tasks;
+      try {
+        const decodedString = atob(encodedTasks);
+        const tasks: ISelectedTask[] = JSON.parse(decodedString, (key, value) => {
+          if (key === 'id' || key === 'amount') {
+            return Number(value);
+          }
+          return value;
+        });
+        return tasks;
+      } catch (error) {
+        void message.error('Неверный код варианта!');
+        throw new Error('Неверный код варианта!');
+      }
     };
     dispatch(studentActions.addInfo({
       hash,
@@ -32,6 +37,7 @@ export const OptionParameters: FC = () => {
     }));
   };
 
+  // W3siaWQiOjUsImFtbW91bnQiOjZ9LHsiaWQiOjEsImFtbW91bnQiOjJ9XQ==
   const isButtonDisabled = !name || !hash;
 
   return (
