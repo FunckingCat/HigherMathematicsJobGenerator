@@ -3,6 +3,8 @@ import { type FC, useState, type MouseEvent, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student/slice';
+import { SHA512 } from 'crypto-js';
+import { type ISelectedTask } from '../../../store/task/types';
 
 import styles from './student-option-parameters.module.scss';
 
@@ -20,11 +22,25 @@ export const StudentOptionParameters: FC = () => {
   }, [option]);
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
+    const decodeTasks = (encodedTasks: string): ISelectedTask[] => {
+      const decodedString = atob(encodedTasks);
+      const tasks: ISelectedTask[] = JSON.parse(decodedString, (key, value) => {
+        if (key === 'id' || key === 'amount') {
+          return Number(value);
+        }
+        return value;
+      });
+      return tasks;
+    };
+    const hashedName = SHA512(name).toString();
     dispatch(studentActions.addInfo({
       hash,
-      name
+      name,
+      userHash: hashedName,
+      tasks: decodeTasks(hash)
     }));
   };
+
   const isButtonDisabled = !name;
   return (
     <>

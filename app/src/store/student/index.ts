@@ -1,2 +1,3 @@
 export { studentActions, studentReducer } from './slice';
-export { studentHashSelector, studentNameSelector } from './selectors';
+// eslint-disable-next-line max-len
+export { studentHashSelector, studentNameSelector, studentTasksSelector, studentUserHashSelector } from './selectors';

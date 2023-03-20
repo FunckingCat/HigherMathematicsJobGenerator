@@ -6,7 +6,9 @@ import { type IStudentState } from './types';
 
 const initialState: IStudentState = {
   hash: null,
-  name: null
+  userHash: null,
+  name: null,
+  tasks: null
 };
 
 export const { actions: studentActions, reducer: studentReducer } = createSlice({
@@ -16,6 +18,8 @@ export const { actions: studentActions, reducer: studentReducer } = createSlice(
     addInfo: (state, { payload }: PayloadAction<NonNullableFields<IStudentState>>) => {
       state.hash = payload.hash;
       state.name = payload.name;
+      state.userHash = payload.userHash;
+      state.tasks = payload.tasks;
     }
   }
 });
