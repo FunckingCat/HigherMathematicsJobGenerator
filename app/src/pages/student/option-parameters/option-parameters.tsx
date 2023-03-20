@@ -2,6 +2,9 @@ import { Button, Input } from 'antd';
 import { type FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student';
+import { SHA512 } from 'crypto-js';
+import { type ISelectedTask } from '../../../store/task/types';
+
 import styles from './option-parameters.module.scss';
 
 export const OptionParameters: FC = () => {
@@ -10,11 +13,25 @@ export const OptionParameters: FC = () => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
+    const hashedName = SHA512(name).toString();
+    const decodeTasks = (encodedTasks: string): ISelectedTask[] => {
+      const decodedString = atob(encodedTasks);
+      const tasks: ISelectedTask[] = JSON.parse(decodedString, (key, value) => {
+        if (key === 'id' || key === 'amount') {
+          return Number(value);
+        }
+        return value;
+      });
+      return tasks;
+    };
     dispatch(studentActions.addInfo({
       hash,
-      name
+      name,
+      userHash: hashedName,
+      tasks: decodeTasks(hash)
     }));
   };
+
   const isButtonDisabled = !name || !hash;
 
   return (
