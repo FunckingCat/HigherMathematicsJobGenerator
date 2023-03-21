@@ -1,10 +1,10 @@
-import { Button, Input, message } from 'antd';
+import { Button, Input } from 'antd';
 import { type FC, useState, type MouseEvent, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student/slice';
 import { SHA512 } from 'crypto-js';
-import { type ISelectedTask } from '../../../store/task/types';
+import { decodeTasks } from '../../../store/utils/decode-tasks';
 
 import styles from './student-option-parameters.module.scss';
 
@@ -22,27 +22,6 @@ export const StudentOptionParameters: FC = () => {
   }, [option]);
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
-    const decodeTasks = (encodedTasks: string): ISelectedTask[] => {
-      try {
-        const decodedString = atob(encodedTasks);
-        const tasks: ISelectedTask[] = decodedString.split('|').map((part) => {
-          const [id, amount] = part.split('N');
-          if (id == null) {
-            void message.error('Неверный код варианта!');
-            throw new Error('Неверный код варианта!');
-          }
-          return {
-            id: Number(id),
-            amount: Number(amount)
-          };
-        });
-
-        return tasks;
-      } catch (error) {
-        void message.error('Неверный код варианта!');
-        throw new Error('Неверный код варианта!');
-      }
-    };
     const hashedName = SHA512(name).toString();
     dispatch(studentActions.addInfo({
       hash,
