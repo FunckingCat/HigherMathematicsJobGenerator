@@ -9,6 +9,7 @@ import 'katex/dist/katex.min.css';
 import { Button, Select, Slider } from 'antd';
 import { useDispatch } from 'react-redux';
 import { taskActions } from 'store/task';
+import { generateHash } from '../../store/utils/generate-hash';
 import styles from './professor.module.scss';
 
 import { type ITemplateProps } from './types';
@@ -28,6 +29,11 @@ export const ProfessorPage: FC = () => {
       setSection(newSection);
     }
   }, [sectionName]);
+  // генерация кода
+  const handleGenerateHashClick = () => {
+    const hash = generateHash();
+    console.log(hash);
+  };
 
   return (
     <Page className={styles.wrapper}>
@@ -42,7 +48,7 @@ export const ProfessorPage: FC = () => {
         </p>
         {section.templates.map((template) => <Template key={template.id} template={template} />)}
       </div>
-      <Button type="primary">Сгенерировать код варианта</Button>
+      <Button type="primary" onClick={handleGenerateHashClick}>Сгенерировать код варианта</Button>
     </Page>
   );
 };
