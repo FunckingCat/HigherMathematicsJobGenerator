@@ -17,12 +17,18 @@ export const OptionParameters: FC = () => {
     const decodeTasks = (encodedTasks: string): ISelectedTask[] => {
       try {
         const decodedString = atob(encodedTasks);
-        const tasks: ISelectedTask[] = JSON.parse(decodedString, (key, value) => {
-          if (key === 'id' || key === 'amount') {
-            return Number(value);
+        const tasks: ISelectedTask[] = decodedString.split('|').map((part) => {
+          const [id, amount] = part.split('N');
+          if (id == null) {
+            void message.error('Неверный код варианта!');
+            throw new Error('Неверный код варианта!');
           }
-          return value;
+          return {
+            id: Number(id),
+            amount: Number(amount)
+          };
         });
+
         return tasks;
       } catch (error) {
         void message.error('Неверный код варианта!');
@@ -36,8 +42,6 @@ export const OptionParameters: FC = () => {
       tasks: decodeTasks(hash)
     }));
   };
-
-  // W3siaWQiOjUsImFtbW91bnQiOjZ9LHsiaWQiOjEsImFtbW91bnQiOjJ9XQ==
   const isButtonDisabled = !name || !hash;
 
   return (
