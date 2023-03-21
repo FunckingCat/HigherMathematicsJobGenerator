@@ -24,12 +24,14 @@ export const StudentOptionParameters: FC = () => {
   const handleClick = (e: MouseEvent<HTMLElement>) => {
     const decodeTasks = (encodedTasks: string): ISelectedTask[] => {
       const decodedString = atob(encodedTasks);
-      const tasks: ISelectedTask[] = JSON.parse(decodedString, (key, value) => {
-        if (key === 'id' || key === 'amount') {
-          return Number(value);
-        }
-        return value;
-      });
+      const tasks: ISelectedTask[] = decodedString.split('|')
+        .map((part) => {
+          const [id, amount] = part.split('N');
+          return {
+            id: Number(id),
+            amount: Number(amount)
+          };
+        });
       return tasks;
     };
     const hashedName = SHA512(name).toString();
