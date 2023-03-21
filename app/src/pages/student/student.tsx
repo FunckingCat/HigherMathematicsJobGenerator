@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 import styles from './student.module.scss';
 import { OptionParameters } from './option-parameters';
 import { StudentOptionParameters } from './student-option-parameters';
-import { Option } from './option';
 
 export const StudentPage: FC = () => {
   const location = useLocation();
@@ -13,7 +12,6 @@ export const StudentPage: FC = () => {
   return (
     <Page className={styles.wrapper}>
       {hasOption ? <StudentOptionParameters /> : <OptionParameters />}
-      <Option />
     </Page>
   );
 };

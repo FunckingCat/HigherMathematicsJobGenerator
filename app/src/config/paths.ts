@@ -3,5 +3,6 @@ export const PATHS = {
   PROFESSOR: '/professor',
   STUDENT: '/student',
   STUDENT_OPTION: '/student/:option',
-  LOGIN: '/login'
+  LOGIN: '/login',
+  OPTION: '/option'
 } as const;

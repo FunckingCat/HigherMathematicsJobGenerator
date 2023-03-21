@@ -7,6 +7,7 @@ import { HomePage } from './home';
 import { ProfessorPage } from './professor';
 import { StudentPage } from './student';
 import { LoginPage } from './login';
+import { Option } from './option';
 
 const routes: RouteObject[] = [
   {
@@ -28,6 +29,10 @@ const routes: RouteObject[] = [
   {
     path: PATHS.LOGIN,
     element: <LoginPage />
+  },
+  {
+    path: PATHS.OPTION,
+    element: <Option />
   }
 ];
 

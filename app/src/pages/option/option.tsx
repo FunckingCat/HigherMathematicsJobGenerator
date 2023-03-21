@@ -2,8 +2,10 @@ import { type FC } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath } from 'react-katex';
 import { TASKS } from 'config';
+import { Page } from 'widgets';
 import { OPTION } from './constants';
 import { getRandomNumber, parseTask } from './helpers';
+import styles from './option.module.scss';
 
 export const Option: FC = () => {
   if (!OPTION) {
@@ -15,7 +17,7 @@ export const Option: FC = () => {
     );
   }
   return (
-    <>
+    <Page className={styles.page}>
       <p>
         Пользователь:
         {' '}
@@ -37,7 +39,12 @@ export const Option: FC = () => {
               {task
                 ? (
                   <>
-                    <p>{task.name}</p>
+                    <p>
+                      {task.name}
+                      . Пример
+                      {' '}
+                      {taskIndex + 1}
+                    </p>
                     <p>{task.template}</p>
                     <BlockMath>{parseTask(task.template, getRandomNumber)}</BlockMath>
                   </>
@@ -55,6 +62,6 @@ export const Option: FC = () => {
           ));
         })}
       </ol>
-    </>
+    </Page>
   );
 };
