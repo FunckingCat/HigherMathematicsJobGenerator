@@ -1,18 +1,16 @@
-import { type FC, useEffect, useRef, useState } from 'react';
-
-import { Page } from 'widgets';
-import { TASKS_CONFIGURATION } from 'config';
-
+import { type FC, useEffect, useState } from 'react';
+import { Select, Slider } from 'antd';
+import { useDispatch } from 'react-redux';
 import { BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 
-import { Button, Select, Slider } from 'antd';
-import { useDispatch } from 'react-redux';
+import { Page } from 'widgets';
+import { PATHS, TASKS_CONFIGURATION } from 'config';
 import { taskActions } from 'store/task';
-import { generateHash } from '../../store/utils/generate-hash';
-import styles from './professor.module.scss';
 
+import { ButtonHash } from 'shared/components';
 import { type ITemplateProps } from './types';
+import styles from './professor.module.scss';
 
 const sections =
     TASKS_CONFIGURATION.map((task) => ({ value: task.section, label: task.section_name }));
@@ -29,11 +27,6 @@ export const ProfessorPage: FC = () => {
       setSection(newSection);
     }
   }, [sectionName]);
-  // генерация кода
-  const handleGenerateHashClick = () => {
-    const hash = generateHash();
-    console.log(hash);
-  };
 
   return (
     <Page className={styles.wrapper}>
@@ -48,7 +41,7 @@ export const ProfessorPage: FC = () => {
         </p>
         {section.templates.map((template) => <Template key={template.id} template={template} />)}
       </div>
-      <Button type="primary" onClick={handleGenerateHashClick}>Сгенерировать код варианта</Button>
+      <ButtonHash type="primary" href={PATHS.QR}>Сгенерировать код варианта</ButtonHash>
     </Page>
   );
 };
