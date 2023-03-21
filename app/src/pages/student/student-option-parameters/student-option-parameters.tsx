@@ -1,4 +1,4 @@
-import { Button, Input } from 'antd';
+import { Button, Input, message } from 'antd';
 import { type FC, useState, type MouseEvent, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -23,16 +23,25 @@ export const StudentOptionParameters: FC = () => {
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
     const decodeTasks = (encodedTasks: string): ISelectedTask[] => {
-      const decodedString = atob(encodedTasks);
-      const tasks: ISelectedTask[] = decodedString.split('|')
-        .map((part) => {
+      try {
+        const decodedString = atob(encodedTasks);
+        const tasks: ISelectedTask[] = decodedString.split('|').map((part) => {
           const [id, amount] = part.split('N');
+          if (id == null) {
+            void message.error('Неверный код варианта!');
+            throw new Error('Неверный код варианта!');
+          }
           return {
             id: Number(id),
             amount: Number(amount)
           };
         });
-      return tasks;
+
+        return tasks;
+      } catch (error) {
+        void message.error('Неверный код варианта!');
+        throw new Error('Неверный код варианта!');
+      }
     };
     const hashedName = SHA512(name).toString();
     dispatch(studentActions.addInfo({

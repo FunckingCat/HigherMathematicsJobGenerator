@@ -17,14 +17,17 @@ export const OptionParameters: FC = () => {
     const decodeTasks = (encodedTasks: string): ISelectedTask[] => {
       try {
         const decodedString = atob(encodedTasks);
-        const tasks: ISelectedTask[] = decodedString.split('|')
-          .map((part) => {
-            const [id, amount] = part.split('N');
-            return {
-              id: Number(id),
-              amount: Number(amount)
-            };
-          });
+        const tasks: ISelectedTask[] = decodedString.split('|').map((part) => {
+          const [id, amount] = part.split('N');
+          if (id == null) {
+            void message.error('Неверный код варианта!');
+            throw new Error('Неверный код варианта!');
+          }
+          return {
+            id: Number(id),
+            amount: Number(amount)
+          };
+        });
 
         return tasks;
       } catch (error) {
