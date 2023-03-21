@@ -8,6 +8,7 @@ export const templatesConfig = {
     tg: '(tg(x))',
     sin: '([odd] * sin([even] * x))',
     kx: '([const] * x)',
-    power: '^{[const]}'
+    power: '^{[const]}',
+    ax: '([const] + [sin, cos] * x)'
   }
 };

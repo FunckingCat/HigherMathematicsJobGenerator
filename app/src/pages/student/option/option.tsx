@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { BlockMath } from 'react-katex';
 import { TASKS } from 'config';
 import { OPTION } from './constants';
-import { parseTask } from './helpers';
+import { getRandomNumber, parseTask } from './helpers';
 
 export const Option: FC = () => {
   if (!OPTION) {
@@ -27,16 +27,19 @@ export const Option: FC = () => {
         {OPTION.optionCode}
       </p>
       <ol>
-        {OPTION.tasks.map(({ id }) => {
-          const task = TASKS.find(({ id: taskId }) => taskId === id);
-          return (
-            <li key={id}>
+        {OPTION.tasks.map(({ id, amount }) => {
+          const taskVariants = new Array(amount).fill(
+            TASKS.find(({ id: taskId }) => taskId === id)
+          );
+          return taskVariants.map((task, taskIndex) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <li key={`${id}${taskIndex}`}>
               {task
                 ? (
                   <>
                     <p>{task.name}</p>
                     <p>{task.template}</p>
-                    <BlockMath>{parseTask(task.template, OPTION.userHash)}</BlockMath>
+                    <BlockMath>{parseTask(task.template, getRandomNumber)}</BlockMath>
                   </>
                   )
                 : (
@@ -49,7 +52,7 @@ export const Option: FC = () => {
                   </p>
                   )}
             </li>
-          );
+          ));
         })}
       </ol>
     </>
