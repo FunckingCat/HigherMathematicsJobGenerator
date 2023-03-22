@@ -1,9 +1,11 @@
-import { Button, Input } from 'antd';
+import { Input } from 'antd';
 import { type FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student';
 import { SHA512 } from 'crypto-js';
 import { decodeTasks } from '../../../store/utils/decode-tasks';
+import { ButtonHash } from '../../../shared/components';
+import { PATHS } from '../../../config';
 
 import styles from './option-parameters.module.scss';
 
@@ -47,14 +49,15 @@ export const OptionParameters: FC = () => {
           value={hash}
           placeholder="************"
         />
-        <Button
+        <ButtonHash
           type="primary"
           className={styles.button}
           onClick={handleClick}
           disabled={isButtonDisabled}
+          href={PATHS.OPTION}
         >
           Создать
-        </Button>
+        </ButtonHash>
       </div>
     </>
   );

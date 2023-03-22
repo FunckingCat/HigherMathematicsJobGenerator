@@ -1,4 +1,4 @@
-import { Button, Input } from 'antd';
+import { Input } from 'antd';
 import { type FC, useState, type MouseEvent, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -7,6 +7,8 @@ import { SHA512 } from 'crypto-js';
 import { decodeTasks } from '../../../store/utils/decode-tasks';
 
 import styles from './student-option-parameters.module.scss';
+import { ButtonHash } from '../../../shared/components';
+import { PATHS } from '../../../config';
 
 export const StudentOptionParameters: FC = () => {
   const [name, setUsername] = useState('');
@@ -44,7 +46,14 @@ export const StudentOptionParameters: FC = () => {
           value={name}
           placeholder="Иванов Иван 211-321"
         />
-        <Button type="primary" onClick={handleClick} disabled={isButtonDisabled}>Создать</Button>
+        <ButtonHash
+          type="primary"
+          onClick={handleClick}
+          disabled={isButtonDisabled}
+          href={PATHS.OPTION}
+        >
+          Создать
+        </ButtonHash>
       </div>
     </>
   );
