@@ -2,8 +2,10 @@ import { type FC } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath } from 'react-katex';
 import { TASKS } from 'config';
+import { Page } from 'widgets';
 import { OPTION } from './constants';
-import { parseTask } from './helpers';
+import { getRandomNumber, parseTask } from './helpers';
+import styles from './option.module.scss';
 
 export const Option: FC = () => {
   if (!OPTION) {
@@ -15,7 +17,7 @@ export const Option: FC = () => {
     );
   }
   return (
-    <>
+    <Page className={styles.page}>
       <p>
         Пользователь:
         {' '}
@@ -27,16 +29,24 @@ export const Option: FC = () => {
         {OPTION.optionCode}
       </p>
       <ol>
-        {OPTION.tasks.map(({ id }) => {
-          const task = TASKS.find(({ id: taskId }) => taskId === id);
-          return (
-            <li key={id}>
+        {OPTION.tasks.map(({ id, amount }) => {
+          const taskVariants = new Array(amount).fill(
+            TASKS.find(({ id: taskId }) => taskId === id)
+          );
+          return taskVariants.map((task, taskIndex) => (
+            // eslint-disable-next-line react/no-array-index-key
+            <li key={`${id}${taskIndex}`}>
               {task
                 ? (
                   <>
-                    <p>{task.name}</p>
+                    <p>
+                      {task.name}
+                      . Пример
+                      {' '}
+                      {taskIndex + 1}
+                    </p>
                     <p>{task.template}</p>
-                    <BlockMath>{parseTask(task.template, OPTION.userHash)}</BlockMath>
+                    <BlockMath>{parseTask(task.template, getRandomNumber)}</BlockMath>
                   </>
                   )
                 : (
@@ -49,9 +59,9 @@ export const Option: FC = () => {
                   </p>
                   )}
             </li>
-          );
+          ));
         })}
       </ol>
-    </>
+    </Page>
   );
 };

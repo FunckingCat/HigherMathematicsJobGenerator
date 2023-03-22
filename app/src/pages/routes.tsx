@@ -7,6 +7,7 @@ import { HomePage } from './home';
 import { ProfessorPage } from './professor';
 import { StudentPage } from './student';
 import { LoginPage } from './login';
+import { Option } from './option';
 import { QRPage } from './qr';
 
 const routes: RouteObject[] = [
@@ -29,6 +30,10 @@ const routes: RouteObject[] = [
   {
     path: PATHS.LOGIN,
     element: <LoginPage />
+  },
+  {
+    path: PATHS.OPTION,
+    element: <Option />
   },
   {
     path: PATHS.QR,
