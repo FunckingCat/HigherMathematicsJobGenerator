@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { Button, Typography } from 'antd';
+import { Typography } from 'antd';
 
 import { ButtonHash } from 'shared/components';
 import { PATHS } from 'config';
