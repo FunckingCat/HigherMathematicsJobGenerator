@@ -1,5 +1,4 @@
 import { templatesConfig } from 'config';
-import { OPTION } from './constants';
 
 export function chooseTemplate (task: string, getRandomNumber: () => number) {
   const stableRandomNumber = getRandomNumber();
@@ -45,7 +44,7 @@ export function parseTask (task: string, getRandomNumber: () => number) {
   return replaceConstants(parsedTask, getRandomNumber);
 }
 
-export function getNumberFromChar (char: string, min: number, max: number) {
+function getNumberFromChar (char: string, min: number, max: number) {
   const charCode = char.charCodeAt(0);
   const range = max - min;
   return charCode % range + min;
@@ -64,5 +63,3 @@ export function createHashFunction (hash: string) {
     return numberFromChar;
   };
 }
-
-export const getRandomNumber = createHashFunction(OPTION.userHash);
