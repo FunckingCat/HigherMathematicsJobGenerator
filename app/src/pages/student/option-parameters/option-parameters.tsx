@@ -3,6 +3,7 @@ import { type FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student';
 import { SHA512 } from 'crypto-js';
+import { useNavigate } from 'react-router-dom';
 import { decodeTasks } from '../../../store/utils/decode-tasks';
 import { ButtonHash } from '../../../shared/components';
 import { PATHS } from '../../../config';
@@ -13,6 +14,7 @@ export const OptionParameters: FC = () => {
   const [name, setUsername] = useState('');
   const [hash, setHash] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     const hashedName = SHA512(name).toString();
@@ -24,7 +26,7 @@ export const OptionParameters: FC = () => {
         userHash: hashedName,
         tasks: decodedTasks
       }));
-      window.location.href = PATHS.OPTION;
+      navigate(PATHS.OPTION);
     }
   };
   const isButtonDisabled = !name || !hash;
