@@ -6,11 +6,11 @@ import { Header } from '../header';
 import { type PagePropsType } from './types';
 import styles from './page.module.scss';
 
-export const Page: FC<PagePropsType> = ({ children, className, ...props }) => (
-  <>
+export const Page: FC<PagePropsType> = ({ children, ...props }) => (
+  <div className={styles.page}>
     <Header />
     <main className={styles.main}>
-      <Container className={className} {...props}>{children}</Container>
+      <Container {...props}>{children}</Container>
     </main>
-  </>
+  </div>
 );

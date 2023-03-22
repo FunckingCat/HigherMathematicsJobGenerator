@@ -2,6 +2,11 @@ import { store } from '../store';
 
 export const generateHash = () => {
   const { selectedTasks } = store.getState().task;
+
+  if (!selectedTasks.length) {
+    return null;
+  }
+
   const tasksArray: string[] = [];
 
   selectedTasks.forEach(({ id, amount }) => {
