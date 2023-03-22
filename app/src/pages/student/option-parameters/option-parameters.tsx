@@ -16,12 +16,16 @@ export const OptionParameters: FC = () => {
 
   const handleClick = () => {
     const hashedName = SHA512(name).toString();
-    dispatch(studentActions.addInfo({
-      hash,
-      name,
-      userHash: hashedName,
-      tasks: decodeTasks(hash)
-    }));
+    const decodedTasks = decodeTasks(hash);
+    if (decodedTasks.length > 0) {
+      dispatch(studentActions.addInfo({
+        hash,
+        name,
+        userHash: hashedName,
+        tasks: decodedTasks
+      }));
+      window.location.href = PATHS.OPTION;
+    }
   };
   const isButtonDisabled = !name || !hash;
 
@@ -54,7 +58,6 @@ export const OptionParameters: FC = () => {
           className={styles.button}
           onClick={handleClick}
           disabled={isButtonDisabled}
-          href={PATHS.OPTION}
         >
           Создать
         </ButtonHash>

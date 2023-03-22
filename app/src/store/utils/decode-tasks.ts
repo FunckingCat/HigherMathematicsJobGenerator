@@ -6,8 +6,7 @@ export const decodeTasks = (encodedTasks: string): ISelectedTask[] => {
     const decodedString = atob(encodedTasks);
     const tasks: ISelectedTask[] = decodedString.split('|').map((part) => {
       const [id, amount] = part.split('N');
-      if (id == null) {
-        void message.error('Неверный код варианта!');
+      if (!id || !amount) {
         throw new Error('Неверный код варианта!');
       }
       return {
@@ -19,6 +18,6 @@ export const decodeTasks = (encodedTasks: string): ISelectedTask[] => {
     return tasks;
   } catch (error) {
     void message.error('Неверный код варианта!');
-    throw new Error('Неверный код варианта!');
+    return [];
   }
 };

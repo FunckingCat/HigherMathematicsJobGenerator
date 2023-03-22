@@ -1,6 +1,6 @@
 import { Input } from 'antd';
 import { type FC, useState, type MouseEvent, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student/slice';
 import { SHA512 } from 'crypto-js';
@@ -16,6 +16,7 @@ export const StudentOptionParameters: FC = () => {
 
   const dispatch = useDispatch();
   const { option } = useParams<{ option: string }>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (option) {
@@ -25,12 +26,16 @@ export const StudentOptionParameters: FC = () => {
 
   const handleClick = (e: MouseEvent<HTMLElement>) => {
     const hashedName = SHA512(name).toString();
-    dispatch(studentActions.addInfo({
-      hash,
-      name,
-      userHash: hashedName,
-      tasks: decodeTasks(hash)
-    }));
+    const decodedTasks = decodeTasks(hash);
+    if (decodedTasks.length > 0) {
+      dispatch(studentActions.addInfo({
+        hash,
+        name,
+        userHash: hashedName,
+        tasks: decodedTasks
+      }));
+      navigate(PATHS.OPTION);
+    }
   };
 
   const isButtonDisabled = !name;
@@ -41,6 +46,7 @@ export const StudentOptionParameters: FC = () => {
       </p>
       <div className={styles.sectionValue}>
         <Input
+          className={styles.inputOption}
           type="text"
           onChange={(e) => { setUsername(e.target.value); }}
           value={name}
@@ -50,7 +56,6 @@ export const StudentOptionParameters: FC = () => {
           type="primary"
           onClick={handleClick}
           disabled={isButtonDisabled}
-          href={PATHS.OPTION}
         >
           Создать
         </ButtonHash>
