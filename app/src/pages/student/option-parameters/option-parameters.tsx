@@ -1,9 +1,9 @@
-import { Button, Input, message } from 'antd';
+import { Button, Input } from 'antd';
 import { type FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student';
 import { SHA512 } from 'crypto-js';
-import { type ISelectedTask } from '../../../store/task/types';
+import { decodeTasks } from '../../../store/utils/decode-tasks';
 
 import styles from './option-parameters.module.scss';
 
@@ -14,27 +14,6 @@ export const OptionParameters: FC = () => {
 
   const handleClick = () => {
     const hashedName = SHA512(name).toString();
-    const decodeTasks = (encodedTasks: string): ISelectedTask[] => {
-      try {
-        const decodedString = atob(encodedTasks);
-        const tasks: ISelectedTask[] = decodedString.split('|').map((part) => {
-          const [id, amount] = part.split('N');
-          if (id == null) {
-            void message.error('Неверный код варианта!');
-            throw new Error('Неверный код варианта!');
-          }
-          return {
-            id: Number(id),
-            amount: Number(amount)
-          };
-        });
-
-        return tasks;
-      } catch (error) {
-        void message.error('Неверный код варианта!');
-        throw new Error('Неверный код варианта!');
-      }
-    };
     dispatch(studentActions.addInfo({
       hash,
       name,
