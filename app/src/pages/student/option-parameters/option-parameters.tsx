@@ -1,9 +1,12 @@
-import { Button, Input } from 'antd';
+import { Input } from 'antd';
 import { type FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student';
 import { SHA512 } from 'crypto-js';
+import { useNavigate } from 'react-router-dom';
 import { decodeTasks } from '../../../store/utils/decode-tasks';
+import { ButtonHash } from '../../../shared/components';
+import { PATHS } from '../../../config';
 
 import styles from './option-parameters.module.scss';
 
@@ -11,15 +14,20 @@ export const OptionParameters: FC = () => {
   const [name, setUsername] = useState('');
   const [hash, setHash] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     const hashedName = SHA512(name).toString();
-    dispatch(studentActions.addInfo({
-      hash,
-      name,
-      userHash: hashedName,
-      tasks: decodeTasks(hash)
-    }));
+    const decodedTasks = decodeTasks(hash);
+    if (decodedTasks.length > 0) {
+      dispatch(studentActions.addInfo({
+        hash,
+        name,
+        userHash: hashedName,
+        tasks: decodedTasks
+      }));
+      navigate(PATHS.OPTION);
+    }
   };
   const isButtonDisabled = !name || !hash;
 
@@ -47,14 +55,14 @@ export const OptionParameters: FC = () => {
           value={hash}
           placeholder="************"
         />
-        <Button
+        <ButtonHash
           type="primary"
           className={styles.button}
           onClick={handleClick}
           disabled={isButtonDisabled}
         >
           Создать
-        </Button>
+        </ButtonHash>
       </div>
     </>
   );
