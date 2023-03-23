@@ -26,7 +26,7 @@ export const ProfessorPage: FC = () => {
         TASKS_CONFIGURATION[0];
       setSection(newSection);
     }
-  }, [sectionName]);
+  }, [section.section, sectionName]);
 
   return (
     <Page className={styles.wrapper}>
