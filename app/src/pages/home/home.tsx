@@ -9,7 +9,6 @@ import styles from './home.module.scss';
 
 export const HomePage: FC = () => (
   <Page className={styles.wrapper}>
-    <img className={styles.qr} src={qr} alt="QR" />
     <div className={styles.info}>
       <p className={styles.desc}>
         Данный генератор позволяет преподавателю определить состав и уровень

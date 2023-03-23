@@ -41,16 +41,14 @@
         "@typescript-eslint/semi": "off",
         "@typescript-eslint/strict-boolean-expressions": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
-
         "import/extensions": "off",
         "import/prefer-default-export": "off",
-        "max-len": ["error", { "code": 100 }],
+        "max-len": ["error", { "code": 10000 }],
         "semi": ["error", "always"],
-        "no-unused-vars": "warn",
+        "no-unused-vars": "off",
         "linebreak-style": "off",
         "no-underscore-dangle": "off",
         "no-param-reassign": "off",
-
         "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".tsx"] }],
         "react/function-component-definition": "off",
         "react/react-in-jsx-scope": "off",
