@@ -3,7 +3,6 @@ import { type FC } from 'react';
 import { Page } from 'widgets';
 import { ButtonLink } from 'shared';
 import { PATHS } from 'config';
-import qr from 'assets/images/qr.jpg';
 
 import styles from './home.module.scss';
 
