@@ -1,7 +1,6 @@
 import { type FC } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath } from 'react-katex';
-import { TASKS } from 'config';
 import { Page } from 'widgets';
 import { useSelector } from 'react-redux';
 import {
@@ -11,6 +10,7 @@ import {
 } from 'store/student';
 import { createHashFunction, parseTask } from './helpers';
 import styles from './option.module.scss';
+import { TASKS } from './constants';
 
 export const Option: FC = () => {
   const name = useSelector(studentNameSelector);
@@ -19,10 +19,10 @@ export const Option: FC = () => {
   const tasks = useSelector(studentTasksSelector);
   if (!name || !hash || !userHash || !tasks) {
     return (
-      <p>
+      <Page className={styles.page}>
         Данные по формированию варианта отсутствуют. Перейдите
-        <Link to="/">на главную страницу</Link>
-      </p>
+        <Link to="/" className={styles.link}> на главную страницу</Link>
+      </Page>
     );
   }
   const getRandomNumber = createHashFunction(userHash);
@@ -31,21 +31,21 @@ export const Option: FC = () => {
       <p>
         Пользователь:
         {' '}
-        {name}
+        <strong>{name}</strong>
       </p>
-      <p>
+      <p className={styles.header}>
         Код варианта:
         {' '}
-        {hash}
+        <strong>{hash}</strong>
       </p>
-      <ol>
+      <ol className={styles.list}>
         {tasks.map(({ id, amount }) => {
           const taskVariants = new Array(amount).fill(
             TASKS.find(({ id: taskId }) => taskId === id)
           );
           return taskVariants.map((task, taskIndex) => (
             // eslint-disable-next-line react/no-array-index-key
-            <li key={`${id}${taskIndex}`}>
+            <li key={`${id}${taskIndex}`} className={styles.listItem}>
               {task
                 ? (
                   <>
