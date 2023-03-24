@@ -1,5 +1,6 @@
 .header {
     display: flex;
-    justify-content: center;
-    padding: var(--indent-size-s) 0;
+    padding: var(--indent-size-s);
+    align-items: center;
+    border-bottom: 1px solid gray;
 }
