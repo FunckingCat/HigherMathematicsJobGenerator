@@ -1,9 +1,11 @@
 import { type FC } from 'react';
-import { Page } from 'widgets';
 import { useLocation } from 'react-router-dom';
-import styles from './student.module.scss';
+
+import { Page } from 'widgets';
 import { OptionParameters } from './option-parameters';
 import { StudentOptionParameters } from './student-option-parameters';
+
+import styles from './student.module.scss';
 
 export const StudentPage: FC = () => {
   const location = useLocation();

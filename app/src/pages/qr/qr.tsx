@@ -1,10 +1,11 @@
 import { type FC } from 'react';
-import { Button, QRCode, Typography } from 'antd';
+import { QRCode, Typography } from 'antd';
 
 import { Error, Page } from 'widgets';
 import { PATHS } from 'config';
+import { Button } from 'shared/components';
 import { generateHash } from 'store/utils';
-import { getOriginPath } from 'shared/utils';
+import { getFullHref } from 'shared/utils';
 
 import styles from './qr.module.scss';
 
@@ -16,15 +17,16 @@ export const QRPage: FC = () => {
       return null;
     }
 
-    const originPath = getOriginPath();
-    const path = `${originPath}${PATHS.STUDENT}/${hash}`;
+    const fullHref = getFullHref();
+    const optionPath = `${PATHS.STUDENT}/${hash}`;
+    const totalPath = `${fullHref}${optionPath}`;
 
     return (
       <div className={styles.qr}>
         <Typography.Title>Отсканируй QR код или перейди по ссылке</Typography.Title>
-        <QRCode value={path} />
-        <Button href={path}>
-          {path}
+        <QRCode value={totalPath} />
+        <Button href={optionPath}>
+          {totalPath}
         </Button>
       </div>
     );

@@ -7,8 +7,8 @@ import 'katex/dist/katex.min.css';
 import { Page } from 'widgets';
 import { PATHS, TASKS_CONFIGURATION } from 'config';
 import { taskActions } from 'store/task';
+import { Button } from 'shared/components';
 
-import { ButtonHash } from 'shared/components';
 import { type ITemplateProps } from './types';
 import styles from './professor.module.scss';
 
@@ -41,7 +41,7 @@ export const ProfessorPage: FC = () => {
         </p>
         {section.templates.map((template) => <Template key={template.id} template={template} />)}
       </div>
-      <ButtonHash type="primary" href={PATHS.QR}>Сгенерировать код варианта</ButtonHash>
+      <Button type="primary" href={PATHS.QR}>Сгенерировать код варианта</Button>
     </Page>
   );
 };

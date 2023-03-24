@@ -1,14 +1,15 @@
 import { Input } from 'antd';
-import { type FC, useState, type MouseEvent, useEffect } from 'react';
+import { type FC, useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student/slice';
 import { SHA512 } from 'crypto-js';
-import { decodeTasks } from '../../../store/utils/decode-tasks';
+import { decodeTasks } from 'store/utils/decode-tasks';
+
+import { Button } from 'shared/components';
+import { PATHS } from 'config';
 
 import styles from './student-option-parameters.module.scss';
-import { ButtonHash } from '../../../shared/components';
-import { PATHS } from '../../../config';
 
 export const StudentOptionParameters: FC = () => {
   const [name, setUsername] = useState('');
@@ -24,7 +25,7 @@ export const StudentOptionParameters: FC = () => {
     }
   }, [option]);
 
-  const handleClick = (e: MouseEvent<HTMLElement>) => {
+  const handleClick = () => {
     const hashedName = SHA512(name).toString();
     const decodedTasks = decodeTasks(hash);
     if (decodedTasks.length > 0) {
@@ -52,13 +53,13 @@ export const StudentOptionParameters: FC = () => {
           value={name}
           placeholder="Иванов Иван 211-321"
         />
-        <ButtonHash
+        <Button
           type="primary"
           onClick={handleClick}
           disabled={isButtonDisabled}
         >
           Создать
-        </ButtonHash>
+        </Button>
       </div>
     </>
   );

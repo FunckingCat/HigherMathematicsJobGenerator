@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 import { Container, Logo } from 'shared';
 import { type HeaderPropsType } from './types';
 import styles from './header.module.scss';
-import { ButtonHash } from '../../shared/components';
+import { Button } from '../../shared/components';
 import { PATHS } from '../../config';
 
 export const Header: FC<HeaderPropsType> = ({ className, ...props }) => {
@@ -18,7 +18,7 @@ export const Header: FC<HeaderPropsType> = ({ className, ...props }) => {
       </Container>
       {pathname !== PATHS.HOME && (
         <Link to={PATHS.HOME}>
-          <ButtonHash>На главную</ButtonHash>
+          <Button>На главную</Button>
         </Link>
       )}
     </header>
