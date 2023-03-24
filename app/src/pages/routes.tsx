@@ -9,6 +9,7 @@ import { StudentPage } from './student';
 import { LoginPage } from './login';
 import { Option } from './option';
 import { QRPage } from './qr';
+import { AboutPage } from './about';
 
 const routes: RouteObject[] = [
   {
@@ -30,6 +31,10 @@ const routes: RouteObject[] = [
   {
     path: PATHS.LOGIN,
     element: <LoginPage />
+  },
+  {
+    path: PATHS.ABOUT,
+    element: <AboutPage />
   },
   {
     path: PATHS.OPTION,
