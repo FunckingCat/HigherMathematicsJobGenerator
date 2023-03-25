@@ -5,7 +5,7 @@ import { studentActions } from 'store/student';
 import { SHA512 } from 'crypto-js';
 import { useNavigate } from 'react-router-dom';
 import { decodeTasks } from '../../../store/utils/decode-tasks';
-import { ButtonHash } from '../../../shared/components';
+import { Button } from '../../../shared/components';
 import { PATHS } from '../../../config';
 
 import styles from './option-parameters.module.scss';
@@ -55,14 +55,14 @@ export const OptionParameters: FC = () => {
           value={hash}
           placeholder="************"
         />
-        <ButtonHash
+        <Button
           type="primary"
           className={styles.button}
           onClick={handleClick}
           disabled={isButtonDisabled}
         >
           Создать
-        </ButtonHash>
+        </Button>
       </div>
     </>
   );

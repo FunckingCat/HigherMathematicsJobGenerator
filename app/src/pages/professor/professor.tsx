@@ -11,10 +11,11 @@ import { selectedTasksSelector, taskSelector } from 'store/task/selectors';
 
 import { Page } from 'widgets';
 import { PATHS, TASKS_CONFIGURATION } from 'config';
-import { ButtonHash } from 'shared/components';
-import { useParams } from 'react-router-dom';
+import { Button } from 'shared/components';
+
 import styles from './professor.module.scss';
 import { type ITemplateProps } from './types';
+import { useParams } from 'react-router-dom';
 
 const { Title, Text } = Typography;
 
@@ -32,7 +33,7 @@ export const ProfessorPage: FC = () => {
         </Title>
         {section?.templates.map((template) => <Template key={template.id} template={template} />)}
       </div>
-      <ButtonHash type="primary" href={PATHS.QR} disabled={isTasksPicked}>Сгенерировать код варианта</ButtonHash>
+      <Button type="primary" href={PATHS.QR} disabled={isTasksPicked}>Сгенерировать код варианта</Button>
     </Page>
   );
 };

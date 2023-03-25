@@ -1,1 +1,1 @@
-export { getOriginPath } from './get-origin-path';
+export { getFullHref } from './get-full-href';

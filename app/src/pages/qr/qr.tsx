@@ -1,10 +1,11 @@
 import { type FC } from 'react';
-import { Button, QRCode, Typography } from 'antd';
+import { QRCode, Typography } from 'antd';
 
 import { Error, Page } from 'widgets';
 import { PATHS } from 'config';
+import { Button } from 'shared/components';
 import { generateHash } from 'store/utils';
-import { getOriginPath } from 'shared/utils';
+import { getFullHref } from 'shared/utils';
 
 import { useNavigate } from 'react-router-dom';
 import styles from './qr.module.scss';
@@ -18,16 +19,17 @@ export const QRPage: FC = () => {
       return null;
     }
 
-    const originPath = getOriginPath();
-    const studentPath = `${originPath}${PATHS.STUDENT}/${hash}`;
-    const tasksPath = `${originPath}${PATHS.TASKS}`;
-
+    const fullHref = getFullHref();
+    const optionPath = `${PATHS.STUDENT}/${hash}`;
+    const totalPath = `${fullHref}${optionPath}`;
+    const tasksPath = `${fullHref}${PATHS.TASKS}`
+    
     return (
       <div className={styles.qr}>
         <Typography.Title>Отсканируй QR код или перейди по ссылке</Typography.Title>
-        <QRCode value={studentPath} />
-        <Button href={studentPath}>
-          {studentPath}
+        <QRCode value={totalPath} />
+        <Button href={optionPath}>
+          {totalPath}
         </Button>
         <div className={styles.pathButtons}>
           <Button onClick={() => { navigate(-1); }}>
