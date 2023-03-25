@@ -17,10 +17,14 @@ export function replaceTemplate (task: string) {
   ));
 }
 
-export function replaceConstants (task: string, getRandomNumber: () => number) {
+export function replaceConstants (task: string, getRandomNumber: (props?: typeof templatesConfig.bounds) => number) {
   const stableRandomNumber = getRandomNumber();
 
   return task.replace(/\[(.*?)]/g, (_, template) => {
+    if (template.includes(':')) {
+      const [constMin, constMax] = template.split(':').map((string: string) => Number(string));
+      return getRandomNumber({ constMin, constMax });
+    }
     if (template === 'const') {
       return stableRandomNumber;
     }
@@ -53,11 +57,10 @@ function getNumberFromChar (char: string, min: number, max: number) {
 export function createHashFunction (hash: string) {
   let counter = 0;
 
-  return function getRandomNumber () {
+  return function getRandomNumber ({ constMin, constMax } = templatesConfig.bounds) {
     if (counter > hash.length) {
       counter = 0;
     }
-    const { constMin, constMax } = templatesConfig.bounds;
     const numberFromChar = getNumberFromChar(hash[counter], constMin, constMax);
     counter += 1;
     return numberFromChar;
