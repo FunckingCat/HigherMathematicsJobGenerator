@@ -13,3 +13,8 @@
     margin-bottom: var(--indent-size-l);
   }
 }
+
+.pathButtons {
+  display: flex;
+  gap: var(--indent-size-s)
+}

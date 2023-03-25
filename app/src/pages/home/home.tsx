@@ -10,7 +10,7 @@ export const HomePage: FC = () => (
   <Page className={styles.wrapper}>
     <div className={styles.links}>
       <ButtonHash href={PATHS.ABOUT}>О программе</ButtonHash>
-      <ButtonHash href={PATHS.PROFESSOR}>Сгенерировать вариант</ButtonHash>
+      <ButtonHash href={PATHS.TASKS}>Сгенерировать вариант</ButtonHash>
       <ButtonHash href={PATHS.STUDENT}>Сгенерировать задание</ButtonHash>
     </div>
   </Page>
