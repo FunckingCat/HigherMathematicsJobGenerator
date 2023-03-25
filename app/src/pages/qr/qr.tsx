@@ -22,8 +22,8 @@ export const QRPage: FC = () => {
     const fullHref = getFullHref();
     const optionPath = `${PATHS.STUDENT}/${hash}`;
     const totalPath = `${fullHref}${optionPath}`;
-    const tasksPath = `${fullHref}${PATHS.TASKS}`
-    
+    const tasksPath = `${fullHref}${PATHS.TASKS}`;
+
     return (
       <div className={styles.qr}>
         <Typography.Title>Отсканируй QR код или перейди по ссылке</Typography.Title>

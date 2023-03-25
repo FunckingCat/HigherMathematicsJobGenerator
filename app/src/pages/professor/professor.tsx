@@ -13,9 +13,9 @@ import { Page } from 'widgets';
 import { PATHS, TASKS_CONFIGURATION } from 'config';
 import { Button } from 'shared/components';
 
+import { useParams } from 'react-router-dom';
 import styles from './professor.module.scss';
 import { type ITemplateProps } from './types';
-import { useParams } from 'react-router-dom';
 
 const { Title, Text } = Typography;
 
