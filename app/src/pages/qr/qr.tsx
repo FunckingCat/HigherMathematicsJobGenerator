@@ -22,7 +22,6 @@ export const QRPage: FC = () => {
     const fullHref = getFullHref();
     const optionPath = `${PATHS.STUDENT}/${hash}`;
     const totalPath = `${fullHref}${optionPath}`;
-    const tasksPath = `${fullHref}${PATHS.TASKS}`;
 
     return (
       <div className={styles.qr}>
@@ -35,7 +34,7 @@ export const QRPage: FC = () => {
           <Button onClick={() => { navigate(-1); }}>
             Назад
           </Button>
-          <Button href={tasksPath}>
+          <Button href={PATHS.TASKS}>
             Вернуться к секциям
           </Button>
         </div>
