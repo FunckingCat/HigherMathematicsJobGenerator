@@ -25,10 +25,13 @@ export const QRPage: FC = () => {
 
     return (
       <div className={styles.qr}>
-        <Typography.Title>Отсканируй QR код или перейди по ссылке</Typography.Title>
-        <QRCode value={totalPath} />
+        <div>
+          Код варианта:
+          {hash}
+        </div>
+        <QRCode value={totalPath} size={250} />
         <Button href={optionPath}>
-          {totalPath}
+          Перейти к  варианту
         </Button>
         <div className={styles.pathButtons}>
           <Button onClick={() => { navigate(-1); }}>

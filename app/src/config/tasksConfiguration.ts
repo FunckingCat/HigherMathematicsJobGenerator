@@ -13,25 +13,25 @@ export const TASKS_CONFIGURATION = [
         id: 2,
         name: 'Метод интегрирования по частям',
         view: '\\int{udv} = uv - \\int{vdu}',
-        template: '[kx] + [sin,cos]'
+        template: '[kx] + x[power]'
       },
       {
         id: 3,
-        name: '',
+        name: 'Тут может быть любое название',
         view: '\\int{f(x)e^{kx}}dx',
-        template: '[kx] + [sin,cos]'
+        template: '[kx] + [sin,cos,tg]'
       },
       {
         id: 4,
         name: 'Интегрирование рациональных дробей',
-        view: '\\int\\frac{P(x)}{Q(x)},\\ где\\ P\\ и\\ Q\\ -\\ многочлены\\ степени\\ m\\ и\\ n',
-        template: '[kx] + [sin,cos]'
+        view: '\\int\\frac{P(x)}{Q(x)}',
+        template: '[kx] + [sin,cos,(-5:15)]'
       },
       {
         id: 5,
         name: 'Универсальная Тригонометрическая подстановка',
         view: '\\int\\frac{dx}{asinx+bcosx+c}',
-        template: '[kx] + [sin,cos]'
+        template: '[kx] + [10:20]'
       }
     ]
   },
@@ -42,7 +42,7 @@ export const TASKS_CONFIGURATION = [
       {
         id: 6,
         name: '',
-        view: '\\int\\frac{sinxdx}{\\sqrt{asin^2x+bcos^2x}}\\ или \\int\\frac{cosxdx}{\\sqrt{asin^2x+bcos^2x}}',
+        view: '\\int\\frac{sinxdx}{\\sqrt{asin^2x+bcos^2x}}',
         template: '[kx] + [sin,cos]'
       },
       {
@@ -59,7 +59,7 @@ export const TASKS_CONFIGURATION = [
       },
       {
         id: 9,
-        name: '',
+        name: 'А еще если название не нужно его может и не быть',
         view: '\\int{R(x,x^{\\frac{p1}{q1}},,x^{\\frac{p2}{q2}}, ..., ,x^{\\frac{pn}{qn}})}dx',
         template: '[kx] + [sin,cos]'
       },
