@@ -7,10 +7,12 @@ import { Button } from 'shared/components';
 import { generateHash } from 'store/utils';
 import { getFullHref } from 'shared/utils';
 
+import { useNavigate } from 'react-router-dom';
 import styles from './qr.module.scss';
 
 export const QRPage: FC = () => {
   const hash = generateHash();
+  const navigate = useNavigate();
 
   const renderQR = () => {
     if (!hash) {
@@ -20,6 +22,7 @@ export const QRPage: FC = () => {
     const fullHref = getFullHref();
     const optionPath = `${PATHS.STUDENT}/${hash}`;
     const totalPath = `${fullHref}${optionPath}`;
+    const tasksPath = `${fullHref}${PATHS.TASKS}`;
 
     return (
       <div className={styles.qr}>
@@ -28,6 +31,14 @@ export const QRPage: FC = () => {
         <Button href={optionPath}>
           {totalPath}
         </Button>
+        <div className={styles.pathButtons}>
+          <Button onClick={() => { navigate(-1); }}>
+            Назад
+          </Button>
+          <Button href={tasksPath}>
+            Вернуться к секциям
+          </Button>
+        </div>
       </div>
     );
   };

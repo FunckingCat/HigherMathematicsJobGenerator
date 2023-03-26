@@ -1,59 +1,49 @@
 import { type FC, useEffect, useState } from 'react';
-import { Select, Slider } from 'antd';
-import { useDispatch } from 'react-redux';
+import { Slider, Typography } from 'antd';
+
 import { BlockMath } from 'react-katex';
 import 'katex/dist/katex.min.css';
 
+import { type AppStateType } from 'store';
+import { useDispatch, useSelector } from 'react-redux';
+import { taskActions } from 'store/task';
+import { selectedTasksSelector, taskSelector } from 'store/task/selectors';
+
 import { Page } from 'widgets';
 import { PATHS, TASKS_CONFIGURATION } from 'config';
-import { taskActions } from 'store/task';
 import { Button } from 'shared/components';
 
-import { type ITemplateProps } from './types';
+import { useParams } from 'react-router-dom';
 import styles from './professor.module.scss';
+import { type ITemplateProps } from './types';
 
-const sections =
-    TASKS_CONFIGURATION.map((task) => ({ value: task.section, label: task.section_name }));
+const { Title, Text } = Typography;
 
 export const ProfessorPage: FC = () => {
-  const [sectionName, setSectionName] = useState('integrals');
-  const [section, setSection] = useState(TASKS_CONFIGURATION[0]);
+  const { option } = useParams<{ option: string }>();
+  const section = TASKS_CONFIGURATION.find((sectionItem) => sectionItem.section === option);
+  const tasksSelector = useSelector(selectedTasksSelector);
 
-  useEffect(() => {
-    if (section.section !== sectionName) {
-      const newSection =
-        TASKS_CONFIGURATION.find((item) => item.section === sectionName) ??
-        TASKS_CONFIGURATION[0];
-      setSection(newSection);
-    }
-  }, [section.section, sectionName]);
-
+  const isTasksPicked = !tasksSelector.length;
   return (
     <Page className={styles.wrapper}>
       <div className={styles.section}>
-        <Select
-          value={sectionName}
-          onChange={(val) => { setSectionName(val); }}
-          options={sections}
-        />
-        <p className={styles.sectionName}>
-          {section.section_name}
-        </p>
-        {section.templates.map((template) => <Template key={template.id} template={template} />)}
+        <Title level={3} className={styles.sectionName}>
+          {section?.section_name}
+        </Title>
+        {section?.templates.map((template) => <Template key={template.id} template={template} />)}
       </div>
-      <Button type="primary" href={PATHS.QR}>Сгенерировать код варианта</Button>
+      <Button type="primary" href={PATHS.QR} disabled={isTasksPicked}>Сгенерировать код варианта</Button>
     </Page>
   );
 };
 
 const Template: FC<ITemplateProps> = ({ template }) => {
-  const [value, setValue] = useState(0);
-
   const dispatch = useDispatch();
+  const state = useSelector((appState: AppStateType) => appState);
+  const task = taskSelector(state, template.id);
 
   const handleChange = (newValue: number) => {
-    setValue(newValue);
-
     if (newValue === 0) {
       dispatch(taskActions.removeTask({ id: template.id }));
       return;
@@ -65,17 +55,22 @@ const Template: FC<ITemplateProps> = ({ template }) => {
   };
 
   return (
-    <div className={styles.templateContainer}>
-      <BlockMath>{template.view}</BlockMath>
-      <BlockMath>{template.template}</BlockMath>
-      <div className={styles.slider}>
-        <p>{ value }</p>
-        <Slider
-          className={styles.templateSlider}
-          value={value}
-          onChange={(newValue) => { handleChange(newValue); }}
-          max={10}
-        />
+    <div className={styles.template}>
+      <Text type="secondary">{template.name}</Text>
+      <div className={styles.templateContainer}>
+        <BlockMath>{template.view}</BlockMath>
+        <div className={styles.templatePreview}>
+          <BlockMath>{template.template}</BlockMath>
+        </div>
+        <div className={styles.slider}>
+          <Text className={styles.templateAmount}>{ task?.amount ?? 0 }</Text>
+          <Slider
+            className={styles.templateSlider}
+            value={task?.amount}
+            onChange={(newValue) => { handleChange(newValue); }}
+            max={10}
+          />
+        </div>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ export const Header: FC<HeaderPropsType> = ({ className, ...props }) => {
       </Container>
       {pathname !== PATHS.HOME && (
         <Link to={PATHS.HOME}>
-          <Button>На главную</Button>
+          <Button className={styles.btn}>На главную</Button>
         </Link>
       )}
     </header>

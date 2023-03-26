@@ -11,6 +11,9 @@ export const { actions: taskActions, reducer: taskReducer } = createSlice({
   name: REDUCER_NAMES.TASK,
   initialState,
   reducers: {
+    clearTasks: (state) => {
+      state.selectedTasks = [];
+    },
     editSelectedTask: (state, { payload }: PayloadAction<ISelectedTask>) => {
       const hasTaskInStore = state.selectedTasks.find((task) => task.id === payload.id);
 
@@ -26,7 +29,7 @@ export const { actions: taskActions, reducer: taskReducer } = createSlice({
       }
     },
     removeTask: (state, { payload }: PayloadAction<IRemoveTask>) => {
-      state.selectedTasks.filter((task) => task.id !== payload.id);
+      state.selectedTasks = state.selectedTasks.filter((task) => task.id !== payload.id);
     }
   }
 });

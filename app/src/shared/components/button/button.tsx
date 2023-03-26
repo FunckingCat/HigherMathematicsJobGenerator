@@ -16,6 +16,7 @@ export const Button: FC<IButtonProps> = ({ href, children, ...props }) => {
   const fullHref = getFullHref();
 
   return (
+  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
     <OriginalButton href={`${fullHref}${href}`} {...props}>
       {children}
     </OriginalButton>
