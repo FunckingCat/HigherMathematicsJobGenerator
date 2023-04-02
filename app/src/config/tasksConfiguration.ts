@@ -41,44 +41,44 @@ export const TASKS_CONFIGURATION = [
     templates: [
       {
         id: 6,
-        name: '',
-        view: '\\int\\frac{sinxdx}{\\sqrt{asin^2x+bcos^2x}}',
+        name: 'Найти производную функции $y = f(x)$',
+        view: '2sin^5 3x + \\sqrt{ln(3x - x^2)}',
         template: '[kx] + [sin,cos]'
       },
       {
         id: 7,
-        name: 'Частные варианты интегрирования тригонометрических функций 2.0',
-        view: '\\int{sinax}\\cdot{cosbx}dx',
+        name: 'Найти производные функций заданных параметрически',
+        view: 'x = e^t sint',
         template: '[kx] + [sin,cos]'
       },
       {
         id: 8,
-        name: 'Частные варианты интегрирования тригонометрических функций 3.0',
-        view: '\\int{sin^mx}\\cdot{cos^nx}dx',
+        name: 'Найти производные функций заданных неявно',
+        view: 'tg(y + x) = x^y',
         template: '[kx] + [sin,cos]'
       },
       {
         id: 9,
-        name: 'А еще если название не нужно его может и не быть',
-        view: '\\int{R(x,x^{\\frac{p1}{q1}},,x^{\\frac{p2}{q2}}, ..., ,x^{\\frac{pn}{qn}})}dx',
+        name: 'Найти производную второго порядка функции $y = f(x)$',
+        view: 'y = cos^2 x^2',
         template: '[kx] + [sin,cos]'
       },
       {
         id: 10,
-        name: '',
-        view: '\\int{\\frac{dx}{\\sqrt{ax^2+bx+c}}}',
+        name: 'Написать уравнения касательной и нормали к графику функции $y = f(x)$ в точке с абсциссой $x_0$',
+        view: 'y = x^3 - 3x + 2; x_0 = 2',
         template: '[kx] + [sin,cos]'
       },
       {
         id: 11,
-        name: '',
-        view: '\\int{R(x,\\sqrt{a^2-x^2})}dx',
+        name: 'Вычислить с помощью дифференциала',
+        view: 'tg48^\\degree',
         template: '[kx] + [sin,cos]'
       },
       {
         id: 12,
-        name: '',
-        view: '\\int{R(x, \\sqrt{ax^2+bx+c})}dx',
+        name: 'Найти наибольшее и наименьшее значения функции $y = f(x)$ на отрезке $[a; b]$',
+        view: 'y = sqrt{(1 - x^2)(1 + 2x^2)}, [-1; 1]',
         template: '[kx] + [sin,cos]'
       }
     ]

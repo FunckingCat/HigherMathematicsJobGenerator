@@ -1,4 +1,4 @@
-import { type FC, useEffect, useState } from 'react';
+import { type FC } from 'react';
 import { Slider, Typography } from 'antd';
 
 import { BlockMath } from 'react-katex';
@@ -11,7 +11,7 @@ import { selectedTasksSelector, taskSelector } from 'store/task/selectors';
 
 import { Page } from 'widgets';
 import { PATHS, TASKS_CONFIGURATION } from 'config';
-import { Button } from 'shared/components';
+import { Button, MathText } from 'shared/components';
 
 import { useParams } from 'react-router-dom';
 import styles from './professor.module.scss';
@@ -56,7 +56,7 @@ const Template: FC<ITemplateProps> = ({ template }) => {
 
   return (
     <div className={styles.template}>
-      <Text type="secondary">{template.name}</Text>
+      <MathText type="secondary">{template.name}</MathText>
       <div className={styles.templateContainer}>
         <BlockMath>{template.view}</BlockMath>
         <div className={styles.templatePreview}>
