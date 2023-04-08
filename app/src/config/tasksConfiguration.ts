@@ -7,31 +7,31 @@ export const TASKS_CONFIGURATION = [
         id: 1,
         name: 'Метод замены переменной',
         view: "\\int{f(g(x))g'(x)}dx",
-        template: 'tg($#$ + x) = x^2'
+        template: '\\int{f(g(/@/))g\'(/@/)}dx'
       },
       {
         id: 2,
         name: 'Метод интегрирования по частям',
         view: '\\int{udv} = uv - \\int{vdu}',
-        template: 'tg([#] + x) = x^2'
+        template: '\\int{udv} = uv - \\int{vdu}'
       },
       {
         id: 3,
         name: 'Тут может быть любое название',
         view: '\\int{f(x)e^{kx}}dx',
-        template: 'tg([#] + x) = x^2'
+        template: '\\int{f(/@/)e^{/@|even/x}}dx'
       },
       {
         id: 4,
         name: 'Интегрирование рациональных дробей',
         view: '\\int\\frac{P(x)}{Q(x)}',
-        template: 'tg([#] + x) = x^2'
+        template: '\\int\\frac{P(/@/)}{Q(/@/)}'
       },
       {
         id: 5,
         name: 'Универсальная Тригонометрическая подстановка',
         view: '\\int\\frac{dx}{asinx+bcosx+c}',
-        template: 'tg([#] + x) = x^2'
+        template: '\\int\\frac{dx}{/@|odd/sinx + /@|even/cosx + /@|aboveZero/}'
       }
     ]
   },
@@ -49,7 +49,7 @@ export const TASKS_CONFIGURATION = [
         id: 7,
         name: 'Найти производные функций заданных параметрически',
         view: 'x = e^t sint',
-        template: 'x = /e,2,3/^t sint'
+        template: 'x = /trig/^t x sint'
       },
       {
         id: 8,

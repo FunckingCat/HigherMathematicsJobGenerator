@@ -1,7 +1,11 @@
 export const templateConfig = {
   defaultSymbol: '@',
   min: -20,
-  max: 20
+  max: 20,
+  aliases: {
+    trig: ['sin', 'cos', 'tg'],
+    arcs: ['arcsin', 'arccos', 'arctg']
+  }
 };
 
 export const filters = {

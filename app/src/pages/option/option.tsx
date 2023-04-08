@@ -41,10 +41,11 @@ export const Option: FC = () => {
         <strong>{hash}</strong>
       </p>
       <ol className={styles.list}>
-        {tasks.map(({ id, amount }) => {
+        {tasks.map(({ id, amount }, index) => {
           const taskVariants = new Array(amount).fill(
             TASKS.find(({ id: taskId }) => taskId === id)
           );
+
           return taskVariants.map((task, taskIndex) => (
             // eslint-disable-next-line react/no-array-index-key
             <li key={`${id}${taskIndex}`} className={styles.listItem}>
@@ -58,7 +59,9 @@ export const Option: FC = () => {
                       {taskIndex + 1}
                     </p>
                     <p>{task.template}</p>
-                    <BlockMath>{parseTemplate(task.template, userHash, taskIndex)}</BlockMath>
+                    <BlockMath>
+                      {parseTemplate(task.template, userHash, index * 10 + taskIndex)}
+                    </BlockMath>
                   </>
                   )
                 : (
