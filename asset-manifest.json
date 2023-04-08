@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/HigherMathematicsJobGenerator/static/css/main.c6eeec59.css",
-    "main.js": "/HigherMathematicsJobGenerator/static/js/main.fe67a4d1.js",
+    "main.js": "/HigherMathematicsJobGenerator/static/js/main.77fac31a.js",
     "static/media/KaTeX_AMS-Regular.ttf": "/HigherMathematicsJobGenerator/static/media/KaTeX_AMS-Regular.853be92419a6c3766b9a.ttf",
     "static/media/KaTeX_Main-Regular.ttf": "/HigherMathematicsJobGenerator/static/media/KaTeX_Main-Regular.9eba1d77abcf2aa6e94e.ttf",
     "static/media/KaTeX_Main-Bold.ttf": "/HigherMathematicsJobGenerator/static/media/KaTeX_Main-Bold.8169508bf58f8bd92ad8.ttf",
@@ -64,10 +64,10 @@
     "static/media/KaTeX_Size3-Regular.woff2": "/HigherMathematicsJobGenerator/static/media/KaTeX_Size3-Regular.e1951519f6f0596f7356.woff2",
     "index.html": "/HigherMathematicsJobGenerator/index.html",
     "main.c6eeec59.css.map": "/HigherMathematicsJobGenerator/static/css/main.c6eeec59.css.map",
-    "main.fe67a4d1.js.map": "/HigherMathematicsJobGenerator/static/js/main.fe67a4d1.js.map"
+    "main.77fac31a.js.map": "/HigherMathematicsJobGenerator/static/js/main.77fac31a.js.map"
   },
   "entrypoints": [
     "static/css/main.c6eeec59.css",
-    "static/js/main.fe67a4d1.js"
+    "static/js/main.77fac31a.js"
   ]
 }
