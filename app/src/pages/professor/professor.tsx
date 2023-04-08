@@ -38,7 +38,7 @@ export const ProfessorPage: FC = () => {
   );
 };
 
-const Template: FC<ITemplateProps> = ({ template }) => {
+const Template: FC<ITemplateProps> = ({ template, ...props }) => {
   const dispatch = useDispatch();
   const state = useSelector((appState: AppStateType) => appState);
   const task = taskSelector(state, template.id);
@@ -55,7 +55,7 @@ const Template: FC<ITemplateProps> = ({ template }) => {
   };
 
   return (
-    <div className={styles.template}>
+    <div className={styles.template} {...props}>
       <MathText type="secondary">{template.name}</MathText>
       <div className={styles.templateContainer}>
         <BlockMath>{template.view}</BlockMath>

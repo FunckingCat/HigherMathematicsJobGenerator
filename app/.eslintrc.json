@@ -54,6 +54,7 @@
         "react/function-component-definition": "off",
         "react/react-in-jsx-scope": "off",
         "react/jsx-props-no-spreading": "off",
-        "jsx-quotes": ["error", "prefer-double"]
+        "jsx-quotes": ["error", "prefer-double"],
+        "no-bitwise": "off"
     }
 }

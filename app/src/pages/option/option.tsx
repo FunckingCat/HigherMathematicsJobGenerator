@@ -8,15 +8,17 @@ import {
   studentNameSelector, studentTasksSelector,
   studentUserHashSelector
 } from 'store/student';
-import { createHashFunction, parseTask } from './helpers';
-import styles from './option.module.scss';
+
 import { TASKS } from './constants';
+import { parseTemplate } from './utils';
+import styles from './option.module.scss';
 
 export const Option: FC = () => {
   const name = useSelector(studentNameSelector);
   const hash = useSelector(studentHashSelector);
   const userHash = useSelector(studentUserHashSelector);
   const tasks = useSelector(studentTasksSelector);
+
   if (!name || !hash || !userHash || !tasks) {
     return (
       <Page className={styles.page}>
@@ -25,7 +27,7 @@ export const Option: FC = () => {
       </Page>
     );
   }
-  const getRandomNumber = createHashFunction(userHash);
+
   return (
     <Page className={styles.page}>
       <p>
@@ -39,10 +41,11 @@ export const Option: FC = () => {
         <strong>{hash}</strong>
       </p>
       <ol className={styles.list}>
-        {tasks.map(({ id, amount }) => {
+        {tasks.map(({ id, amount }, index) => {
           const taskVariants = new Array(amount).fill(
             TASKS.find(({ id: taskId }) => taskId === id)
           );
+
           return taskVariants.map((task, taskIndex) => (
             // eslint-disable-next-line react/no-array-index-key
             <li key={`${id}${taskIndex}`} className={styles.listItem}>
@@ -56,7 +59,9 @@ export const Option: FC = () => {
                       {taskIndex + 1}
                     </p>
                     <p>{task.template}</p>
-                    <BlockMath>{parseTask(task.template, getRandomNumber)}</BlockMath>
+                    <BlockMath>
+                      {parseTemplate(task.template, userHash, index * 10 + taskIndex)}
+                    </BlockMath>
                   </>
                   )
                 : (

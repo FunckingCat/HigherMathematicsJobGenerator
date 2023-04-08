@@ -8,13 +8,13 @@ import { splitMathText } from '../../utils';
 const DEFAULT_SEPARATOR = '$';
 
 export const MathText: FC<IMathTextProps> = ({ children, separator = DEFAULT_SEPARATOR, ...props }) => {
-  const splittedText = useMemo(() => splitMathText(children, separator), [children]);
+  const splittedText = useMemo(() => splitMathText(children, separator), [children, separator]);
 
   return (
     <Typography.Text {...props}>
       {splittedText.map(({ type, value }) => {
         if (type === 'math') {
-          return <InlineMath>{value}</InlineMath>;
+          return <InlineMath key={value}>{value}</InlineMath>;
         }
 
         return value;
