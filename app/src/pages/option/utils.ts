@@ -50,7 +50,8 @@ const generateArray = (min: number, max: number, filter?: Filter) => {
   return arr;
 };
 
-// Возвращает рандомный элемент из массива в зависимости от хэша и номера задания в варианте
+const deletePluses = (string: string) => string.replace(/\s/g, '').replace(/\+-/g, '-');
+
 export const parseTemplate = (template: string, hash: string, serialNumber: number) => {
   let counter = 1;
 
@@ -86,5 +87,7 @@ export const parseTemplate = (template: string, hash: string, serialNumber: numb
     return getItemByIndex(arr, random);
   };
 
-  return template.replace(/\/.*?\//g, replacer);
+  const regex = new RegExp(`\\${templateConfig.separators.start}\\S.*?\\${templateConfig.separators.end}`, 'g');
+
+  return deletePluses(template.replace(regex, replacer));
 };

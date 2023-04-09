@@ -5,6 +5,7 @@
   display: grid;
   gap: 1rem;
   justify-items: center;
+  width: 60%;
 }
 
 
@@ -12,6 +13,7 @@
   display: grid;
   width: 100%;
   gap: 1rem;
+
   & > * {
     width: 100%;
   }
@@ -53,7 +55,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-	box-shadow: inset 0px -1px 0px #C2C2C2;
+  box-shadow: inset 0px -1px 0px #C2C2C2;
 }
 
 .templateSlider {

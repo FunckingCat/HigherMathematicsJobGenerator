@@ -1,13 +1,16 @@
 import { type FC } from 'react';
 import { Link } from 'react-router-dom';
 import { BlockMath } from 'react-katex';
-import { Page } from 'widgets';
 import { useSelector } from 'react-redux';
+
+import { Page } from 'widgets';
 import {
   studentHashSelector,
   studentNameSelector, studentTasksSelector,
   studentUserHashSelector
 } from 'store/student';
+import { MathText } from 'shared/components';
+import { type ITask } from 'config';
 
 import { TASKS } from './constants';
 import { parseTemplate } from './utils';
@@ -42,39 +45,37 @@ export const Option: FC = () => {
       </p>
       <ol className={styles.list}>
         {tasks.map(({ id, amount }, index) => {
-          const taskVariants = new Array(amount).fill(
-            TASKS.find(({ id: taskId }) => taskId === id)
+          const taskVariants = new Array<ITask>(amount).fill(
+            TASKS.find(({ id: taskId }) => taskId === id)!
           );
 
-          return taskVariants.map((task, taskIndex) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <li key={`${id}${taskIndex}`} className={styles.listItem}>
-              {task
-                ? (
-                  <>
+          return taskVariants.map((task, taskIndex) => {
+            const taskName = `№${taskIndex + 1} ${task.name}`;
+
+            return (
+            // eslint-disable-next-line
+              <li key={`${id}${taskIndex}`} className={styles.listItem}>
+                {task
+                  ? (
+                    <>
+                      <MathText>{taskName}</MathText>
+                      <BlockMath>
+                        {parseTemplate(task.template, userHash, index * 10 + taskIndex)}
+                      </BlockMath>
+                    </>
+                    )
+                  : (
                     <p>
-                      {task.name}
-                      . Пример
+                      Задания с id =
                       {' '}
-                      {taskIndex + 1}
+                      {id}
+                      {' '}
+                      не существует
                     </p>
-                    <p>{task.template}</p>
-                    <BlockMath>
-                      {parseTemplate(task.template, userHash, index * 10 + taskIndex)}
-                    </BlockMath>
-                  </>
-                  )
-                : (
-                  <p>
-                    Задания с id =
-                    {' '}
-                    {id}
-                    {' '}
-                    не существует
-                  </p>
-                  )}
-            </li>
-          ));
+                    )}
+              </li>
+            );
+          });
         })}
       </ol>
     </Page>

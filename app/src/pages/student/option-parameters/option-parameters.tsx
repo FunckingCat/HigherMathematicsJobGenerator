@@ -4,9 +4,10 @@ import { useDispatch } from 'react-redux';
 import { studentActions } from 'store/student';
 import { SHA512 } from 'crypto-js';
 import { useNavigate } from 'react-router-dom';
-import { decodeTasks } from '../../../store/utils/decode-tasks';
-import { Button } from '../../../shared/components';
-import { PATHS } from '../../../config';
+
+import { decodeTasks } from 'store/utils';
+import { Button } from 'shared/components';
+import { PATHS } from 'config';
 
 import styles from './option-parameters.module.scss';
 

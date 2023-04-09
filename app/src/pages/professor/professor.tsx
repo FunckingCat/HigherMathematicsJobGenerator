@@ -31,7 +31,7 @@ export const ProfessorPage: FC = () => {
         <Title level={3} className={styles.sectionName}>
           {section?.section_name}
         </Title>
-        {section?.templates.map((template) => <Template key={template.id} template={template} />)}
+        {section?.tasks.map((template) => <Template key={template.id} template={template} />)}
       </div>
       <Button type="primary" href={PATHS.QR} disabled={isTasksPicked}>Сгенерировать код варианта</Button>
     </Page>
@@ -59,9 +59,6 @@ const Template: FC<ITemplateProps> = ({ template, ...props }) => {
       <MathText type="secondary">{template.name}</MathText>
       <div className={styles.templateContainer}>
         <BlockMath>{template.view}</BlockMath>
-        <div className={styles.templatePreview}>
-          <BlockMath>{template.template}</BlockMath>
-        </div>
         <div className={styles.slider}>
           <Text className={styles.templateAmount}>{ task?.amount ?? 0 }</Text>
           <Slider
