@@ -5,6 +5,10 @@ export const templateConfig = {
   aliases: {
     trig: ['sin', 'cos', 'tg'],
     arcs: ['arcsin', 'arccos', 'arctg']
+  },
+  separators: {
+    start: '[',
+    end: ']'
   }
 };
 
