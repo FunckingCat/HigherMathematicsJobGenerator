@@ -20,31 +20,55 @@ export const TASKS_CONFIGURATION: IConfiguration[] = [
         id: 1,
         name: 'Метод замены переменной',
         view: "\\int{f(g(x))g'(x)}dx",
-        template: '\\int{f(g([@]))g\'([@])}dx'
+        template: '\\int{[trig]([@|even]x)}dx'
       },
       {
         id: 2,
         name: 'Метод интегрирования по частям',
         view: '\\int{udv} = uv - \\int{vdu}',
-        template: '\\int{udv} = uv - \\int{vdu}'
+        template: '\\int{(x^{[2:5]} + [@|even] x) [trig] + [@|even] x} dx'
       },
       {
         id: 3,
         name: 'Тут может быть любое название',
         view: '\\int{f(x)e^{kx}}dx',
-        template: '\\int{f([@])e^{[@|even]x}}dx'
+        template: '\\int{e^{[@|even]x} [trig][1:20]x} dx'
       },
       {
         id: 4,
         name: 'Интегрирование рациональных дробей',
         view: '\\int\\frac{P(x)}{Q(x)}',
-        template: '\\int\\frac{P([@])}{Q([@])}'
+        template: '\\int\\frac{{(x + [@|even]})dx}{x^[2:10] + [@|even]x + [@|even]}'
       },
       {
         id: 5,
         name: 'Универсальная Тригонометрическая подстановка',
         view: '\\int\\frac{dx}{asinx+bcosx+c}',
         template: '\\int\\frac{dx}{[@|odd]sinx + [@|even]cosx + [@|aboveZero]}'
+      },
+      {
+        id: 13,
+        name: 'Шаблон',
+        view: '\\int\\frac{sinxdx}{\\sqrt{asin^2x+bcos^2x}}',
+        template: '\\int\\frac{[trig]dx}{\\sqrt{[2:5]sin^2x+[2:10]cos^2x}}'
+      },
+      {
+        id: 14,
+        name: 'Частные варианты интегрирования тригонометрических функций 2.0',
+        view: '\\int{sinax}\\cdot{cosbx}dx',
+        template: '\\int{sin[1:20]x ⋅ cos[1:20]x}{dx}'
+      },
+      {
+        id: 15,
+        name: 'Частные варианты интегрирования тригонометрических функций 3.0',
+        view: '\\int{sin^mx}\\cdot{cos^nx}dx',
+        template: '\\int{sin^{[2:10]}x ⋅ cos^{[2:10]}x}{dx}'
+      },
+      {
+        id: 16,
+        name: 'Шаблон',
+        view: '\\int{\\frac{dx}{\\sqrt{ax^2+bx+c}}}',
+        template: '\\int{\\frac{dx}{\\sqrt{[@|withoutZero]x^2+[@|withoutZero]x+[@|withoutZero]}}}'
       }
     ]
   },
@@ -86,7 +110,7 @@ export const TASKS_CONFIGURATION: IConfiguration[] = [
         id: 11,
         name: 'Вычислить с помощью дифференциала',
         view: 'tg48^\\degree',
-        template: 'tg[1:180]^\\degree'
+        template: '[trig][1:180]^\\degree'
       },
       {
         id: 12,
