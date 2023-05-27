@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { Button, Typography } from 'antd';
+import { Button } from 'antd';
 
 import { Page } from 'widgets';
 
