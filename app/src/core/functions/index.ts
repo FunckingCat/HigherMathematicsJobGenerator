@@ -1,0 +1,1 @@
+export { derivative } from './derivative';

@@ -4,6 +4,7 @@ import { BlockMath } from 'react-katex';
 import { useSelector } from 'react-redux';
 
 import { Page } from 'widgets';
+import { Parser } from 'core';
 import {
   studentHashSelector,
   studentNameSelector, studentTasksSelector,
@@ -13,7 +14,6 @@ import { MathText } from 'shared/components';
 import { type ITask } from 'config';
 
 import { TASKS } from './constants';
-import { parseTemplate } from './utils';
 import styles from './option.module.scss';
 
 export const Option: FC = () => {
@@ -60,7 +60,7 @@ export const Option: FC = () => {
                     <>
                       <MathText>{taskName}</MathText>
                       <BlockMath>
-                        {parseTemplate(task.template, userHash, index * 10 + taskIndex)}
+                        {Parser.parse(task.template, userHash, index * 10 + taskIndex)}
                       </BlockMath>
                     </>
                     )
