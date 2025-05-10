@@ -9,7 +9,7 @@ import styles from './logo.module.scss';
 
 export const Logo: FC<LogoPropsType> = ({ ...props }) => (
   <Link to={PATHS.HOME} className={styles.wrapper}>
-    <img src={logo} alt="Логотип" {...props} width={65} />
+    <img src={logo} alt="Логотип" {...props} width={48} />
     <b className={styles.caption}>{PROJECT_INFO.NAME}</b>
   </Link>
 );

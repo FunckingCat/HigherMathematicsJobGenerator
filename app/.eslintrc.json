@@ -59,6 +59,7 @@
         "react/react-in-jsx-scope": "off",
         "react/jsx-props-no-spreading": "off",
         "jsx-quotes": ["error", "prefer-double"],
+        "multiline-ternary": "off",
         "no-bitwise": "off"
     }
 }
