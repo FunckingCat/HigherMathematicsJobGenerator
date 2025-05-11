@@ -1,0 +1,97 @@
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+  background-color: #ffffff;
+
+  &__container {
+    display: flex;
+    flex-direction: row-reverse;
+    background: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    max-width: 700px;
+    width: 100%;
+  }
+
+  &__left,
+  &__right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__left {
+    padding-left: 40px;
+  }
+
+  &__right {
+    border-right: 1px solid #ccc;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__input,
+  &__select {
+    width: 100%;
+    max-width: 280px;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  &__button {
+    width: 100%;
+    max-width: 280px;
+    background-color: #3b5bbb;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #2a4694;
+    }
+  }
+
+  &__loginButton {
+    background-color: #d32f2f;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #b71c1c;
+    }
+  }
+
+  &__error {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+}
